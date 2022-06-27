@@ -291,6 +291,18 @@ button {
 }
 
 @media (min-width: 40em) {
+  .hidden-tablet {
+    display: none;
+  }
+}
+
+@media (min-width: 64em) {
+  .hidden-tablet {
+    display: inline;
+  }
+}
+
+@media (min-width: 40em) {
   .hidden-tablet-desktop {
     display: none;
   }
