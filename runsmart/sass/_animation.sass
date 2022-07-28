@@ -1,0 +1,16 @@
+.hover-rotation
+	animation-duration: 500ms 
+	animation-iteration-count: 1
+	animation-timing-function: linear
+
+	&:hover
+		animation-name: rotation
+
+@keyframes rotation
+	0%
+		transform: rotateY(0deg)
+
+	100%
+		transform: rotateY(360deg)
+
+		

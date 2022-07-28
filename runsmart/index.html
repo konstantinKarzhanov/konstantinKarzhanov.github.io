@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Runsmart</title>
+</head>
+<body>
+    <div class="overlap" data-active="false"></div>
+    <header class="header">
+        <div class="container container--px flex flex--jc-sb flex--ai-c">
+            <nav class="header__nav flex flex--jc-sb flex--ai-c">
+                <a href="#" class="header__nav__logo">
+                    <img src="images/logo.png" alt="runsmart-logo">
+                </a>
+
+                <div id="btn_hamburger" class="header__nav__hamburger hidden-tablet-desktop" data-opened="false" aria-expanded="false" aria-controls="main-navigation" tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <p class="sr-only">Menu</p>
+                </div>
+
+                <ul id="main-navigation" class="header__nav__menu hidden-tablet-desktop">
+                    <li class="header__nav__menu__item"><a class="link text-white uppercase" href="#">Advantages</a></li>
+                    <li class="header__nav__menu__item"><a class="link text-white uppercase" href="#">Consultation</a></li>
+                    <li class="header__nav__menu__item"><a class="link text-white uppercase" href="#">Catalog</a></li>
+                    <li class="header__nav__menu__item"><a class="link text-white uppercase" href="#">Reviews</a></li>
+                    <li class="header__nav__menu__item"><a class="link text-white uppercase" href="#">Contacts</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__info hidden-mobile-tablet">
+                <p class="text-white font-xs">Official representative: <span class="d-block font-s">Garmin, Polar, Suunto</span></p>
+            </div>
+
+            <div class="header__contact hidden-mobile">
+                <a href="tel:+17099999999" class="link text-white let-sp-xs">+1-709-999-9999</a>
+                <button class="main-btn">Call request</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="promo">
+            <div class="container container--px container--pb">
+
+                <h1 class="promo__title text-white">Choose the Heart Rate Monitor <span class="d-block">that is right for you</span></h1>
+
+                <div class="promo__advantage-box flex flex--jc-c">
+                    <div class="promo__advantage-box__item">
+                        <img src="images/icons/icon-clock.png" alt="timer">
+                        <span class="text-white">Time saving strategies</span>
+                    </div>
+                    <div class="promo__advantage-box__item">
+                        <img src="images/icons/icon-cart.png" alt="cart">
+                        <span class="text-white">Free shipping</span>
+                    </div>
+                    <div class="promo__advantage-box__item">
+                        <img src="images/icons/icon-messages.png" alt="messages">
+                        <span class="text-white">Feel free to ask any question</span>
+                    </div>
+                </div>
+
+                <button class="main-btn">book a consultation</button>
+
+                <div class="promo__call-to-action">
+                    <span class="text-white">or <a class="link text-white" href="#">go to catalog</a></span>
+                </div>
+            </div>
+        </section>
+        <section class="our-care">
+            <div class="container container--px container--py">
+                <h2 class="sub-title text-black">We care about you</h2>
+                <div class="our-care__box">
+                    <div class="our-care__box__item">
+                        <img src="images/icons/icon-cup.png" alt="cup">
+                        <div class="our-care__box__item__description">
+                            <h3 class="our-care__box__item__description-title text-black">Sharing the experience</h3>
+                            <p>So you could join our great team and become a part of our world wide community!</p>
+                        </div>
+                    </div>
+                    <div class="our-care__box__item">
+                        <img src="images/icons/icon-heart-beat.png" alt="heart beat">
+                        <div class="our-care__box__item__description">
+                            <h3 class="our-care__box__item__description-title text-black">Providing diagnostics</h3>
+                            <p>So that your sport activities benefit your health and make you happier</p>
+                        </div>
+                    </div>
+                    <div class="our-care__box__item">
+                        <img src="images/icons/icon-shoe.png" alt="shoe">
+                        <div class="our-care__box__item__description">
+                            <h3 class="our-care__box__item__description-title text-black">Teaching the right techniques</h3>
+                            <p>So you could achieve great results on your first semi-marathon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="get-consultation">
+            <div class="container container--px container--py">
+                <h2 class="sub-title text-white">Not sure how to choose your heart rate monitor?</h2>
+                <form class="new-user-data-form" action="#" method="post">
+                    <p class="text-white">Just fill in the form and we will call you back in 10 minutes</p>
+                    <label for="first-name">
+                        <input id="first-name" name="first-name" type="text" placeholder="First name" autocomplete="on" required>
+                    </label>
+                    <label for="phone-number">
+                        <input id="phone-number" name="phone-number" type="tel" placeholder="Phone number" autocomplete="on">
+                    </label>
+                    <label for="email">
+                        <input id="email" name="email" type="email" placeholder="E-mail" autocomplete="on" required>
+                    </label>
+                    <button class="main-btn">Get consultation</button>
+                </form>
+            </div>
+        </section>
+        <section class="slider">
+            <div class="container container--px container--pt">
+                <h2 class="sub-title text-black">Look closer at what we propose</h2>
+                <div class="carousel grid-container grid-container--carousel" tabindex="0">
+                    
+                    <div class="carousel__limiter">
+                        <ul class="carousel__list flex flex--ai-c">
+                            <li class="carousel__list__item current-slide"><img src="images/carousel/heart-rate-monitor(1).png" alt="heart rate monitor"></li>
+                            <li class="carousel__list__item"><img src="images/carousel/heart-rate-monitor(2).png" alt="heart rate monitor"></li>
+                            <li class="carousel__list__item"><img src="images/carousel/heart-rate-monitor(3).png" alt="heart rate monitor"></li>
+                        </ul>
+                    </div>   
+
+                    <div class="hidden-mobile">
+                        <button class="carousel__btn carousel__btn-previous">
+                            <span class="sr-only">previous slide</span>
+                            <img src="images/icons/icon-left.png" alt="arrow left">
+                        </button>
+                        <button class="carousel__btn carousel__btn-next">
+                            <span class="sr-only">next slide</span>
+                            <img src="images/icons/icon-right.png" alt="arrow right">
+                        </button>
+                    </div>
+
+                    <div class="carousel__nav flex flex--jc-c flex--ai-c">
+                       <button class="carousel__nav__indicator current-slide"><span class="sr-only">first slide</span></button>
+                       <button class="carousel__nav__indicator"><span class="sr-only">second slide</span></button>
+                       <button class="carousel__nav__indicator"><span class="sr-only">third slide</span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog">
+            <div class="container container--px container--py">
+
+                <h2 class="sub-title text-black">Choose the best one for your needs</h2>
+
+                <nav class="catalog__tabs-bar flex flex--jc-c flex--ai-c" aria-label="heart rate monitors catalog" role="tablist">
+                    <button class="catalog__tabs-bar__item" aria-selected="true" tabindex="0" aria-controls="fitness-tab" role="tab"><span class="d-block uppercase">fitness</span></button>
+                    <button class="catalog__tabs-bar__item" aria-selected="false" tabindex="-1" aria-controls="running-tab" role="tab"><span class="d-block uppercase">running</span></button>
+                    <button class="catalog__tabs-bar__item" aria-selected="false" tabindex="-1" aria-controls="triathlon-tab" role="tab"><span class="d-block uppercase">triathlon</span></button>
+                </nav>
+
+                <div id="fitness-tab" tabindex="0" role="tabpanel">
+                    <ul class="catalog__list grid-container grid-container--catalog">
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/fitness(1).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Polar FT4</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/fitness(2).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Polar FT4</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/fitness(3).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Polar FT4</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/fitness(4).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Polar FT4</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/fitness(5).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Polar FT4</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="running-tab" tabindex="0" data-hidden="true" role="tabpanel">
+                    <ul class="catalog__list grid-container grid-container--catalog">
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/running(1).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Scosche</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/running(2).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Scosche</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/running(3).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Scosche</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+                    </ul>
+                </div>
+                
+                <div id="triathlon-tab" tabindex="0" data-hidden="true" role="tabpanel">
+                    <ul class="catalog__list grid-container grid-container--catalog">
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/triathlon(1).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Polar RC3 GPS</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/triathlon(2).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Polar RC3 GPS</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/triathlon(3).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Polar RC3 GPS</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/triathlon(4).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Polar RC3 GPS</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+                        <li class="catalog__list__item">
+                            <div class="catalog__list__item__wrapper">
+                                <div class="catalog__list__item__content flex">
+
+                                    <div class="catalog__list__item__info">
+                                        <img src="images/catalog/triathlon(5).png" alt="type of heart rate monitor">
+                                        <div class="catalog__list__item-details">
+                                            <h3>Polar RC3 GPS</h3>
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                        </div>
+                                    </div>
+    
+                                    <div class="catalog__list__item__description">
+                                        <ul class="catalog__list__item__description-list">
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                            <li class="catalog__list__item__description-list-item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <button class="catalog__list__item__btn-details uppercase">learn more</button> 
+
+                            <div class="catalog__list__item__line"></div>
+
+                            <div class="catalog__list__item__buy flex flex--jc-sb flex--ai-c">
+                                <div class="catalog__list__item__buy-price">
+                                    <span class="old-price d-block line-through">$300</span>
+                                    $200
+                                </div>
+                                <button class="main-btn">buy now</button>
+                            </div> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </section>
+
+        <section class="reviews">
+            <div class="container container--px container--py">
+                <h2 class="sub-title text-black">Reviews</h2>
+                <div class="reviews-box">
+                    <div class="reviews-box__item">
+                        <img src="images/reviews/dog.jpg" alt="racoon">
+                        <div class="reviews-box__item-description">
+                            <span>Chackie Ears</span>
+                            <p>I've been using the heart rate monitor for a week and it's been working fine for me. It doesn't slip from my paw and so delicious to chew!</p>
+                        </div>
+                    </div>
+                    <div class="reviews-box__item">
+                        <img src="images/reviews/duck.jpg" alt="duck">
+                        <div class="reviews-box__item-description">
+                            <span>Donald Drunk</span>
+                            <p>The best thing about this thing is that it's water proof and I can swim and dive wearing it!</p>
+                        </div>
+                    </div>
+                    <div class="reviews-box__item">
+                        <img src="images/reviews/racoon.jpg" alt="racoon">
+                        <div class="reviews-box__item-description">
+                            <span>Rob Flufferd</span>
+                            <p>Found this device in a trash bin the other night and couldn't believe my eyes how lucky I was! It's much better than a half full sausage pack I found last week! Now I can finally start exercising!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="footer__map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5382.710695890159!2d-52.69157351410121!3d47.580329943212014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b0ca3e79051de7d%3A0x9ad53c3b1f13034b!2sQuidi%20Vidi%20East%20Park!5e0!3m2!1sen!2sca!4v1658528121515!5m2!1sen!2sca" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="footer__wrapper container container--px container--py">
+                <div class="footer__address-box">
+                    <address class="footer__address-box__addr text-white">66 The Blvd, St. John's, NL A1A 1K1</address>
+                    <a href="tel:+17099999999" class="link text-white let-sp-xs">+1-709-999-9999</a>
+                    <div class="footer__address-box__social flex flex--ai-c">
+                        <a class="footer__address-box__social-icon hover-rotation text-white" href="#"><i class="icon-facebook"></i></a>                        
+                        <a class="footer__address-box__social-icon hover-rotation text-white" href="#"><i class="icon-instagram"></i></a>
+                        <a class="footer__address-box__social-icon hover-rotation text-white" href="#"><i class="icon-twitter"></i></a>                      
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script src="js/nav-hamburger.js"></script>
+    <script src="js/btn-click.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/nav-tabList.js"></script>
+    <script src="js/catalog.js"></script>
+
+</body>
+</html>
