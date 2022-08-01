@@ -58,6 +58,10 @@ textarea,
 select
 	font: inherit
 
+dialog
+	padding: 0
+	border: 0
+
 /* remove animations for people who've turned them off */
 	
 @media (prefers-reduced-motion: reduce)
@@ -171,8 +175,9 @@ select
 		@include breakpoint-up(large)
 			grid-template-columns: repeat(3, minmax(18.75rem, 20rem))
 
-.new-user-data-form
+.client-data-form
 	margin: 0 auto
+	padding: 1rem
 	max-width: 24rem
 
 	@include breakpoint-up(medium)
@@ -203,15 +208,30 @@ select
 	padding: 0.625rem 1.5625rem
 	display: block
 	cursor: pointer
+	text-align: center
 	text-transform: uppercase
 	color: $color-2
 	background-color: $color-3
-	border: none
+	border: 0
 	border-radius: 0.3125rem
 	transition: opacity 300ms ease-in-out
 
 	&:hover
 		opacity: 0.75
+
+	a
+		display: inline-block
+
+.btn-close-modal
+	padding: 0px 10px
+	aspect-ratio: 1 / 1
+	position: absolute
+	top: -1.5rem
+	left: -1.5rem
+	font-size: 1.5rem
+	line-height: 1
+	border-radius: 50%
+	box-shadow: 0 0 1rem $color-5
 
 .link
 	display: block

@@ -10,6 +10,7 @@
 </head>
 <body>
     <div class="overlap" data-active="false"></div>
+
     <header class="header">
         <div class="container container--px flex flex--jc-sb flex--ai-c">
             <nav class="header__nav flex flex--jc-sb flex--ai-c">
@@ -39,11 +40,11 @@
 
             <div class="header__contact hidden-mobile">
                 <a href="tel:+17099999999" class="link text-white let-sp-xs">+1-709-999-9999</a>
-                <button class="main-btn">Call request</button>
+                <button class="main-btn call-request-btn">Call request</button>
             </div>
         </div>
     </header>
-
+    
     <main id="main">
         <section class="promo">
             <div class="container container--px container--pb">
@@ -65,13 +66,14 @@
                     </div>
                 </div>
 
-                <button class="main-btn">book a consultation</button>
+                <a href="#consultation-form" class="main-btn link-to-consultation-form">book a consultation</a>
 
                 <div class="promo__call-to-action">
                     <span class="text-white">or <a class="link text-white" href="#">go to catalog</a></span>
                 </div>
             </div>
         </section>
+        
         <section class="our-care">
             <div class="container container--px container--py">
                 <h2 class="sub-title text-black">We care about you</h2>
@@ -103,7 +105,7 @@
         <section class="get-consultation">
             <div class="container container--px container--py">
                 <h2 class="sub-title text-white">Not sure how to choose your heart rate monitor?</h2>
-                <form class="new-user-data-form" action="#" method="post">
+                <form id="consultation-form" class="client-data-form" action="#" method="post">
                     <p class="text-white">Just fill in the form and we will call you back in 10 minutes</p>
                     <label for="first-name">
                         <input id="first-name" name="first-name" type="text" placeholder="First name" autocomplete="on" required>
@@ -114,7 +116,7 @@
                     <label for="email">
                         <input id="email" name="email" type="email" placeholder="E-mail" autocomplete="on" required>
                     </label>
-                    <button class="main-btn">Get consultation</button>
+                    <button class="main-btn" type="submit">Get consultation</button>
                 </form>
             </div>
         </section>
@@ -197,7 +199,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
 
@@ -234,7 +236,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
 
@@ -271,7 +273,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
                         <li class="catalog__list__item">
@@ -307,7 +309,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
                         <li class="catalog__list__item">
@@ -343,7 +345,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
                     </ul>
@@ -384,7 +386,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
 
@@ -421,7 +423,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
 
@@ -458,7 +460,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
                     </ul>
@@ -499,7 +501,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
                         <li class="catalog__list__item">
@@ -535,7 +537,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
                         <li class="catalog__list__item">
@@ -571,7 +573,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
                         <li class="catalog__list__item">
@@ -607,7 +609,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
                         <li class="catalog__list__item">
@@ -643,7 +645,7 @@
                                     <span class="old-price d-block line-through">$300</span>
                                     $200
                                 </div>
-                                <button class="main-btn">buy now</button>
+                                <button class="main-btn buy-btn" type="submit">buy now</button>
                             </div> 
                         </li>
                     </ul>
@@ -697,6 +699,37 @@
                 </div>
             </div>
         </footer>
+        <div class="modals">
+            <dialog class="modals__call-request">
+                <form class="client-data-form" action="#" method="dialog">
+                    <p>Just fill in the form and we will call you back in convenient time:</p>
+                    <label for="call-request-name">
+                        <input id="call-request-name" name="first-name" type="text" placeholder="First name" autocomplete="on" required>
+                    </label>
+                    <label for="call-request-phone">
+                        <input id="call-request-phone" name="phone-number" type="tel" placeholder="Phone number" autocomplete="on" required>
+                    </label>
+                    <button class="main-btn" type="submit">Call request</button>
+                </form>
+                <button class="main-btn btn-close-modal">&times;</button>
+            </dialog>
+            <dialog class="modals__order">
+                <form class="client-data-form" action="#" method="dialog">
+                    <p>You chose: <span>product name</span></p>
+                    <label for="order-name">
+                        <input id="order-name" name="first-name" type="text" placeholder="First name" autocomplete="on" required>
+                    </label>
+                    <label for="order-phone">
+                        <input id="order-phone" name="phone-number" type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Phone number" autocomplete="on" required>
+                    </label>
+                    <label for="order-email">
+                        <input id="order-email" name="email" type="email" placeholder="Email" autocomplete="on" required>
+                    </label>
+                    <button class="main-btn" type="submit">Send request</button>
+                </form>
+                <button class="main-btn btn-close-modal">&times;</button>
+            </dialog>
+        </div>
     </main>
     <script src="js/nav-hamburger.js"></script>
     <script src="js/btn-click.js"></script>
