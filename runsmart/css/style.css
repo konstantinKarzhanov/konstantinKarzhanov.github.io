@@ -334,8 +334,8 @@ dialog {
   padding: 0px 10px;
   aspect-ratio: 1/1;
   position: absolute;
-  top: -1.5rem;
-  left: -1.5rem;
+  top: -1rem;
+  left: -1rem;
   font-size: 1.5rem;
   line-height: 1;
   border-radius: 50%;
@@ -392,6 +392,10 @@ dialog {
 
 .text-white {
   color: hsl(0deg, 0%, 100%);
+}
+
+.text-main {
+  color: hsl(0deg, 99%, 39%);
 }
 
 /*	------------------	*/
