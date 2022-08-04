@@ -18,10 +18,10 @@ btn_main.forEach((button) => {
         } else if(button.classList.contains("buy-btn")){
             const currentButtonContainer = button.parentNode;
             const catalogItem = currentButtonContainer.parentNode;
-            const chosenProductName = catalogItem.querySelector("h3").textContent;
+            const chosenProductName = catalogItem.querySelector("h3").innerHTML;
             
             orderForm.showModal();
-            orderForm.querySelector("span").textContent = chosenProductName;
+            orderForm.querySelector("span").innerHTML = chosenProductName;
 
             closeModal(orderForm);
         } 

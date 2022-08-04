@@ -11,10 +11,10 @@ catalog_list.forEach((list) => {
         btn_details.addEventListener("click", () => {
             if(!item_content.hasAttribute("data-more")){
                 item_content.setAttribute("data-more", true);
-                btn_details.textContent = "go back";
+                btn_details.innerHTML = "go back";
             } else {
                 item_content.removeAttribute("data-more");
-                btn_details.textContent = "learn more";
+                btn_details.innerHTML = "learn more";
             }
         })
     })
