@@ -555,21 +555,19 @@ dialog {
   opacity: 0.5;
 }
 .header__nav__menu {
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  padding-top: 20vh;
   position: fixed;
   z-index: 2;
   right: -100%;
   top: 0;
   width: 70%;
-  height: 100%;
+  height: 100vh;
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 3;
   background-color: hsla(0deg, 0%, 0%, 0.85);
-  visibility: hidden;
-  -webkit-transition: right 300ms ease-in-out;
-  transition: right 300ms ease-in-out;
+  -webkit-transition: right 500ms ease-in-out;
+  transition: right 500ms ease-in-out;
 }
 @supports ((-webkit-backdrop-filter: blur(1rem)) or (backdrop-filter: blur(1rem))) {
   .header__nav__menu {
@@ -580,7 +578,6 @@ dialog {
 }
 .header__nav__menu[data-visible=true] {
   right: 0;
-  visibility: visible;
 }
 .header__nav__menu__item {
   padding-top: 0.625rem;
