@@ -566,8 +566,10 @@ dialog {
   font-size: 1rem;
   line-height: 3;
   background-color: hsla(0deg, 0%, 0%, 0.85);
-  -webkit-transition: right 500ms ease-in-out;
-  transition: right 500ms ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: right 500ms ease-in-out, opacity 500ms ease-in-out, visibility 500ms ease-in-out;
+  transition: right 500ms ease-in-out, opacity 500ms ease-in-out, visibility 500ms ease-in-out;
 }
 @supports ((-webkit-backdrop-filter: blur(1rem)) or (backdrop-filter: blur(1rem))) {
   .header__nav__menu {
@@ -578,6 +580,8 @@ dialog {
 }
 .header__nav__menu[data-visible=true] {
   right: 0;
+  opacity: 1;
+  visibility: visible;
 }
 .header__nav__menu__item {
   padding-top: 0.625rem;

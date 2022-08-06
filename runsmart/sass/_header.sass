@@ -95,7 +95,9 @@
 			font-size: $font-s
 			line-height: 3
 			background-color: $color-5
-			transition: right 500ms ease-in-out
+			visibility: hidden
+			opacity: 0
+			transition: right 500ms ease-in-out, opacity 500ms ease-in-out, visibility 500ms ease-in-out
 			
 			@supports (backdrop-filter: blur(1rem))
 				background-color: $color-6
@@ -103,6 +105,8 @@
 
 			&[data-visible="true"]
 				right: 0
+				opacity: 1
+				visibility: visible
 
 			&__item
 				padding-top: 0.625rem
