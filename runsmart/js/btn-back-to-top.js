@@ -3,9 +3,9 @@ const backToTopBtn = document.querySelector(".btn-back-to-top");
 
 document.addEventListener("scroll", () => {
     if(scrollContainer().scrollTop >= scrollMeasureOnPx){
-        backToTopBtn.setAttribute("data-visible", true);
+        backToTopBtn.removeAttribute("data-faded");
     } else if(scrollContainer().scrollTop < scrollMeasureOnPx){
-        backToTopBtn.removeAttribute("data-visible", true);
+        backToTopBtn.setAttribute("data-faded", true);
     }
 });
 

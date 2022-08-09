@@ -234,9 +234,11 @@ dialog
 	box-shadow: 0 0 1rem $color-5
 
 .btn-back-to-top
+	margin: 0 auto
 	position: fixed
-	bottom: 2.5rem
-	right: 4rem
+	right: 0
+	left: 0
+	bottom: 2rem
 	z-index: 2
 	display: block
 	width: 2.5rem
@@ -244,14 +246,19 @@ dialog
 	background-color: $color-3
 	border: 1px solid $color-2
 	border-radius: 50%
-	opacity: 0
-	visibility: hidden
+	opacity: 1
+	visibility: visible
 	transition: transform 300ms ease-in-out, opacity 300ms ease-in-out, visibility 300ms ease-in-out
 	cursor: pointer
 
-	&[data-visible="true"]
-		opacity: 1
-		visibility: visible
+	@include breakpoint-up(large)
+		margin: 0
+		left: auto
+		right: 3.5rem
+
+	&[data-faded="true"]
+		opacity: 0
+		visibility: hidden
 
 	&:hover
 		opacity: 0.75
