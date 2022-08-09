@@ -343,6 +343,39 @@ dialog {
           box-shadow: 0 0 1rem hsla(0deg, 0%, 0%, 0.85);
 }
 
+.btn-back-to-top {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 4rem;
+  z-index: 2;
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: hsl(0deg, 99%, 39%);
+  border: 1px solid hsl(0deg, 0%, 100%);
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, opacity 300ms ease-in-out, visibility 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+  cursor: pointer;
+}
+.btn-back-to-top[data-visible=true] {
+  opacity: 1;
+  visibility: visible;
+}
+.btn-back-to-top:hover {
+  opacity: 0.75;
+  -webkit-transform: translateY(-20%) scale(1.1);
+          transform: translateY(-20%) scale(1.1);
+}
+.btn-back-to-top img {
+  margin: 0 auto;
+  width: 100%;
+}
+
 .link {
   display: block;
   -webkit-transition: opacity 300ms ease-in-out;

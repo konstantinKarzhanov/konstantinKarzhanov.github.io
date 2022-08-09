@@ -233,6 +233,34 @@ dialog
 	border-radius: 50%
 	box-shadow: 0 0 1rem $color-5
 
+.btn-back-to-top
+	position: fixed
+	bottom: 2.5rem
+	right: 4rem
+	z-index: 2
+	display: block
+	width: 2.5rem
+	height: 2.5rem
+	background-color: $color-3
+	border: 1px solid $color-2
+	border-radius: 50%
+	opacity: 0
+	visibility: hidden
+	transition: transform 300ms ease-in-out, opacity 300ms ease-in-out, visibility 300ms ease-in-out
+	cursor: pointer
+
+	&[data-visible="true"]
+		opacity: 1
+		visibility: visible
+
+	&:hover
+		opacity: 0.75
+		transform: translateY(-20%) scale(1.1)
+
+	img
+		margin: 0 auto
+		width: 100%
+
 .link
 	display: block
 	transition: opacity 300ms ease-in-out
