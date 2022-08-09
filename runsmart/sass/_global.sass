@@ -46,6 +46,7 @@ body
 	line-height: 1.5
 	color: $color-1
 	background-color: $color-2
+	overflow-x: hidden
 
 	&[data-blocked-scroll="true"]
 		overflow: hidden
@@ -114,6 +115,7 @@ dialog
 
 		@include breakpoint-up(large)
 			padding-bottom: 6rem
+
 	&--py
 		padding-top: 3rem
 		padding-bottom: 3rem
@@ -328,12 +330,6 @@ dialog
 /*	visiability			*/
 /*	------------------	*/
 
-// *
-// 	&[data-hidden="true"]
-// 		opacity: 0
-// 		visibility: hidden
-
-// for panels
 *
 	&[data-hidden="true"]
 		display: none
