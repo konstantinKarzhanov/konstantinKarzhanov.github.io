@@ -15,22 +15,22 @@
         <div class="container container--px flex flex--jc-sb flex--ai-c">
             <nav class="header__nav flex flex--jc-sb flex--ai-c">
                 <a href="#" class="header__nav__logo">
-                    <img src="images/logo.png" alt="runsmart-logo">
+                    <img src="images/logo.png" alt="runsmart logo">
                 </a>
 
-                <div id="btn_hamburger" class="header__nav__hamburger hidden-tablet-desktop" data-opened="false" aria-expanded="false" aria-controls="main-navigation" tabindex="0" role="menu">
+                <div id="btn_hamburger" class="header__nav__hamburger hidden-tablet-desktop" data-opened="false" aria-label="menu" aria-expanded="false" aria-controls="main-navigation" tabindex="0" role="button">
                     <span></span>
                     <span></span>
                     <span></span>
                     <p class="sr-only">Menu</p>
                 </div>
 
-                <ul id="main-navigation" class="header__nav__menu hidden-tablet-desktop" data-visible="false">
-                    <li class="header__nav__menu__item"><a class="link text-white uppercase" href="#advantages">Advantages</a></li>
-                    <li class="header__nav__menu__item"><a class="link text-white uppercase" href="#consultation">Consultation</a></li>
-                    <li class="header__nav__menu__item"><a class="link text-white uppercase" href="#catalog">Catalog</a></li>
-                    <li class="header__nav__menu__item"><a class="link text-white uppercase" href="#reviews">Reviews</a></li>
-                    <li class="header__nav__menu__item"><a class="link text-white uppercase" href="#contacts">Contacts</a></li>
+                <ul id="main-navigation" class="header__nav__menu hidden-tablet-desktop" data-visible="false" role="menu" aria-labelledby="btn_hamburger">
+                    <li class="header__nav__menu__item" role="presentation"><a class="link text-white uppercase" href="#advantages" role="menuitem">Advantages</a></li>
+                    <li class="header__nav__menu__item" role="presentation"><a class="link text-white uppercase" href="#consultation" role="menuitem">Consultation</a></li>
+                    <li class="header__nav__menu__item" role="presentation"><a class="link text-white uppercase" href="#catalog" role="menuitem">Catalog</a></li>
+                    <li class="header__nav__menu__item" role="presentation"><a class="link text-white uppercase" href="#reviews" role="menuitem">Reviews</a></li>
+                    <li class="header__nav__menu__item" role="presentation"><a class="link text-white uppercase" href="#contacts" role="menuitem">Contacts</a></li>
                 </ul>
             </nav>
 
@@ -39,7 +39,7 @@
             </div>
 
             <div class="header__contact hidden-mobile">
-                <a href="tel:+17099999999" class="link text-white let-sp-xs">+1-709-999-9999</a>
+                <a href="tel:+17099999999" class="link text-white let-sp-xs"><span class="sr-only">call us:</span>+1-709-999-9999</a>
                 <button class="main-btn call-request-btn">Call request</button>
             </div>
         </div>
@@ -684,17 +684,17 @@
         </section>
         <footer id="contacts" class="footer">
             <div class="footer__map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10764.806543000896!2d-52.689746!3d47.58332!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9ad53c3b1f13034b!2sQuidi%20Vidi%20East%20Park!5e0!3m2!1sen!2sca!4v1660074414905!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe title="An interactive map of St.John's" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10764.806543000896!2d-52.689746!3d47.58332!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9ad53c3b1f13034b!2sQuidi%20Vidi%20East%20Park!5e0!3m2!1sen!2sca!4v1660074414905!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
 
             <div class="footer__wrapper container container--px container--py">
                 <div class="footer__address-box">
                     <address class="footer__address-box__addr text-white">66 The Blvd, St. John's, NL A1A 1K1</address>
-                    <a href="tel:+17099999999" class="link text-white let-sp-xs">+1-709-999-9999</a>
+                    <a href="tel:+17099999999" class="link text-white let-sp-xs"><span class="sr-only">call us:</span>+1-709-999-9999</a>
                     <div class="footer__address-box__social flex flex--ai-c">
-                        <a class="footer__address-box__social-icon hover-rotation text-white" href="#"><i class="icon-facebook"></i></a>                        
-                        <a class="footer__address-box__social-icon hover-rotation text-white" href="#"><i class="icon-instagram"></i></a>
-                        <a class="footer__address-box__social-icon hover-rotation text-white" href="#"><i class="icon-twitter"></i></a>                      
+                        <a class="footer__address-box__social-icon hover-rotation text-white" href="#"><span class="sr-only">facebook</span><i class="icon-facebook" aria-hidden="true"></i></a>                        
+                        <a class="footer__address-box__social-icon hover-rotation text-white" href="#"><span class="sr-only">instagram</span><i class="icon-instagram" aria-hidden="true"></i></a>
+                        <a class="footer__address-box__social-icon hover-rotation text-white" href="#"><span class="sr-only">twitter</span><i class="icon-twitter" aria-hidden="true"></i></a>                      
                     </div>
                 </div>
             </div>

@@ -338,10 +338,6 @@ dialog {
     right: 3.5rem;
   }
 }
-.btn-back-to-top[data-faded=true] {
-  opacity: 0;
-  visibility: hidden;
-}
 .btn-back-to-top:hover {
   opacity: 0.75;
   -webkit-transform: translateY(-20%) scale(1.1);
@@ -419,8 +415,13 @@ dialog {
 }
 
 /*	------------------	*/
-/*	visiability			*/
+/*	visibility			*/
 /*	------------------	*/
+*[data-faded=true] {
+  opacity: 0;
+  visibility: hidden;
+}
+
 *[data-hidden=true] {
   display: none;
 }

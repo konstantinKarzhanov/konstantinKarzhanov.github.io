@@ -7,13 +7,14 @@ const previous_btn = carousel.querySelector(".carousel__btn-previous");
 const next_btn = carousel.querySelector(".carousel__btn-next");
 
 const carousel_nav = carousel.querySelector(".carousel__nav");
-// const carousel_indicators = Array.from(carousel_nav.children);
 
+// const carousel_indicators = Array.from(carousel_nav.children);
 const carousel_indicators = carousel_nav.querySelectorAll(".carousel__nav__indicator");
 
-let current_item_width = carousel_list.querySelector(".current-slide").offsetWidth
 // const current_item_width = carousel_items[0].clientWidth;
 // const current_item_width = carousel_items[0].getBoundingClientRect().width; 
+let current_item_width = carousel_list.querySelector(".current-slide").offsetWidth
+
 
 carousel_items.forEach(setItemPosition);
 
@@ -22,8 +23,19 @@ window.addEventListener("resize", () => {
     carousel_items.forEach(setItemPosition);
 })
 
-previous_btn.addEventListener("click", showPrevSlide);
-next_btn.addEventListener("click", showNextSlide);
+previous_btn.addEventListener("click", () => {
+    previous_btn.style.left = "-5px";
+    setTimeout(() => {previous_btn.style.left = null}, 150);
+    
+    showPrevSlide();
+});
+
+next_btn.addEventListener("click", () => {
+    next_btn.style.right = "-5px";
+    setTimeout(() => {next_btn.style.right = null}, 150);
+
+    showNextSlide();
+});
 
 carousel.addEventListener("keydown", changeSlideWithButton);
 
@@ -127,8 +139,10 @@ function moveToSlide(current_slide, targetSlide, current_indicator, target_indic
     carousel_list.style.transform = `translate(-${targetSlide.style.left})`;
 
     current_slide.classList.remove("current-slide");
+    // current_slide.setAttribute("data-faded", true);
 
     targetSlide.classList.add("current-slide");
+    // targetSlide.removeAttribute("data-faded");
 
     current_indicator.classList.remove("current-slide");
 

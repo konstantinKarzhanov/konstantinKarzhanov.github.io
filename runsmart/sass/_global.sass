@@ -258,10 +258,6 @@ dialog
 		left: auto
 		right: 3.5rem
 
-	&[data-faded="true"]
-		opacity: 0
-		visibility: hidden
-
 	&:hover
 		opacity: 0.75
 		transform: translateY(-20%) scale(1.1)
@@ -327,8 +323,13 @@ dialog
 	font-size: 1rem
 
 /*	------------------	*/
-/*	visiability			*/
+/*	visibility			*/
 /*	------------------	*/
+
+*
+	&[data-faded="true"]
+		opacity: 0
+		visibility: hidden
 
 *
 	&[data-hidden="true"]

@@ -11,9 +11,12 @@ btn_hamburger.addEventListener("keydown", (event) => {
 	const currentKey = event.keyCode;
 	const enterKey = 13;
 	const spaceKey = 32;
+	const escapeKey = 27;
 
 	if(currentKey === enterKey || currentKey === spaceKey){
 		changeHamburgerCondition();
+	} else if(currentKey === escapeKey){
+		closeMenu();
 	}
 })
 
@@ -34,9 +37,19 @@ function openMenu(){
 	body.setAttribute("data-blocked-scroll", true);	
 	nav_menu.setAttribute("data-visible", true);
 
+	nav_menu.addEventListener("keydown", (event) => {
+		const currentKey = event.keyCode;
+		// console.log(currentKey);
+		const escapeKey = 27;
+		if(currentKey === escapeKey){
+			closeMenu();
+		}
+	})
+
 	nav_menu_item.forEach((item) => {
 		item.addEventListener("click", closeMenu);
 	})
+
 }
 
 function closeMenu(){
