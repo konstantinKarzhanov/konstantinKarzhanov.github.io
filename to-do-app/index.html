@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>to-do-list</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container container--px">
+            <h1 class="uppercase">to do</h1>
+            <nav class="tabs-bar" role="tablist">
+                <button class="tabs-bar__item" aria-controls="things-to-do" aria-selected="true" tabindex="0" role="tab">to do</button>
+                <button class="tabs-bar__item" aria-controls="things-completed" aria-selected="false" tabindex="-1" role="tab">completed</button>
+                <button class="tabs-bar__item" aria-controls="things-removed" aria-selected="false" tabindex="-1" role="tab">removed</button>
+            </nav>
+        </div>
+    </header>
+    <main id="main">
+
+        <section class="input-section">
+            <div class="container container--px">
+                <form class="new-task-form" action="#">
+                    <label for="new-task">
+                        <input id="new-task" type="text" placeholder="New thing to do today">
+                    </label>
+                    <button type="submit" class="btn-add">Add</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="things-to-do" class="things-to-do" role="tabpanel" tabindex="0">
+            <div class="container">
+                <ul class="things-to-do__list">
+                    <!-- <li class="things-to-do__item"></li> -->
+                </ul>
+            </div>
+        </section>
+
+        <section id="things-completed" class="things-completed" role="tabpanel" tabindex="0" data-hidden="true">
+            <div class="container">
+                <ul class="things-completed__list">
+                    <!-- <li class="things-to-do__item"></li> -->
+                </ul>
+            </div>
+        </section>
+
+        <section id="things-removed" class="things-removed" role="tabpanel" tabindex="0" data-hidden="true">
+            <div class="container">
+                <ul class="things-removed__list">
+                    <!-- <li class="things-to-do__item"></li> -->
+                </ul>
+            </div>
+        </section>
+        
+    </main>
+    <script src="js/to-do-logic.js"></script>
+    <script src="js/to-do-tabsbar.js"></script>
+
+</body>
+</html>
