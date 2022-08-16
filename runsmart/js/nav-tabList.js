@@ -34,14 +34,15 @@ function changeTabFocus(event){
 		}
 
 		tabItems[focusedTab].setAttribute("tabindex", 0);
+
 		tabItems[focusedTab].focus();
 	}
 }
 
 function changePanelFocus(event){
 
-	targetTab = event.target.closest("button");
-	clickedTab = targetTab.getAttribute("aria-controls");
+	const targetTab = event.target.closest("button");
+	const clickedTab = targetTab.getAttribute("aria-controls");
 
 	if(!targetTab) return;
 
@@ -49,9 +50,12 @@ function changePanelFocus(event){
 	.querySelector("[aria-selected='true']")
 	.setAttribute("aria-selected", false);
 
-	targetTab.setAttribute("aria-selected", true);
+	targetTab
+	.setAttribute("aria-selected", true);
 
-	mainContainer.querySelectorAll("[role='tabpanel']").forEach((item) => {
+	mainContainer
+	.querySelectorAll("[role='tabpanel']")
+	.forEach((item) => {
 		item.setAttribute("data-hidden", true);
 	})
 
