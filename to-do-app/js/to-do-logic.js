@@ -1,106 +1,149 @@
-const inputSection = document.querySelector(".input-section");
-const thingsToDo = document.querySelector(".things-to-do");
-const thingsCompleted = document.querySelector(".things-completed");
-const thingsRemoved = document.querySelector(".things-removed");
+const toDoContainer = document.querySelector(".actual-container");
+const completedContainer = document.querySelector(".completed-container");
+const removedContainer = document.querySelector(".removed-container");
 
-const form = inputSection.querySelector(".new-task-form");
-const input = form.querySelector("#new-task");
-const btnAdd = form.querySelector(".btn-add");
+const newTaskForm = document.querySelector(".new-task-form");
+const inputField = document.querySelector("#new-task");
+const btnAdd = document.querySelector("#btn-add");
 
-const toDoList = thingsToDo.querySelector(".things-to-do__list");
-const completedList = thingsCompleted.querySelector(".things-completed__list");
-const removedList = thingsRemoved.querySelector(".things-removed__list");
+const toDoList = toDoContainer.querySelector(".actual-container__list");
+const completedList = completedContainer.querySelector(".completed-container__list");
+const removedList = removedContainer.querySelector(".removed-container__list"); 
 
-form.addEventListener("submit", (event) => {
+newTaskForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const newTask = input.value;
+    const newTask = inputField.value;
+    inputField.value = "";
     if(!newTask) return;
 
-    const taskContainer = document.createElement("li");
-    taskContainer.classList.add("things-to-do__item");
-    toDoList.appendChild(taskContainer);
+    const tasklistItem = document.createElement("li");
+    tasklistItem.classList.add("actual-container__item");
+    toDoList.insertBefore(tasklistItem, toDoList.children[0]);
 
-    const taskItem = document.createElement("input");
-    taskItem.type = "text";
-    taskItem.value = newTask;
-    taskItem.setAttribute("readonly", "readonly");
-    taskContainer.appendChild(taskItem);
+    const tasklistValue = document.createElement("textarea");
+
+    tasklistValue.classList.add("textarea-task");
+    tasklistValue.value = newTask;
+    tasklistValue.setAttribute("rows", 1);
+    tasklistValue.setAttribute("readonly", "readonly");
+    tasklistItem.appendChild(tasklistValue);
 
     const actionsWithTheTask = document.createElement("div");
-    taskContainer.appendChild(actionsWithTheTask);
+    actionsWithTheTask.classList.add("btn-controls-container");
+    tasklistItem.appendChild(actionsWithTheTask);
 
     const editAction = document.createElement("button");
+    editAction.classList.add("btn-control");
     editAction.textContent = "edit";
     actionsWithTheTask.appendChild(editAction);
 
     const removeAction = document.createElement("button");
+    removeAction.classList.add("btn-control");
     removeAction.textContent = "remove";
     actionsWithTheTask.appendChild(removeAction);
 
     const completeAction = document.createElement("button");
+    completeAction.classList.add("btn-control");
     completeAction.textContent = "complete";
     actionsWithTheTask.appendChild(completeAction);
 
     const recoverAction = document.createElement("button");
+    recoverAction.classList.add("btn-control");
+    recoverAction.setAttribute("data-hidden", true);
     recoverAction.textContent = "recover";
+    actionsWithTheTask.appendChild(recoverAction);
+
+    const currentDate = new Date();
+
+    const dateHolder = document.createElement("span");
+    dateHolder.classList.add("date-holder");
+    dateHolder.textContent = currentDate.toLocaleString();
+    tasklistItem.insertBefore(dateHolder, tasklistItem.children[0]);
 
     editAction.addEventListener("click", () => {
-
         if(editAction.textContent === "edit"){
             editAction.textContent = "save";
-            taskItem.removeAttribute("readonly");
-            taskItem.focus();
+            tasklistValue.removeAttribute("readonly");
+            tasklistValue.focus();
         } else if(editAction.textContent === "save"){
             editAction.textContent = "edit";
-            taskItem.setAttribute("readonly", "readonly");
+            tasklistValue.setAttribute("readonly", "readonly");
         }
     })
 
     completeAction.addEventListener("click", () => {
-        taskContainer.classList.remove("things-to-do__item");
-        taskContainer.classList.add("things-completed__item");
+        tasklistItem.classList.remove("actual-container__item");
+        tasklistItem.classList.add("completed-container__item");
 
-        completedList.appendChild(taskContainer);
+        completedList.insertBefore(tasklistItem, completedList.children[0]);
 
-        actionsWithTheTask.replaceChild(recoverAction, editAction);
-        actionsWithTheTask.removeChild(completeAction);
+        completeAction.setAttribute("data-hidden", true);
+        editAction.setAttribute("data-hidden", true);
+
+        recoverAction.textContent = "undo";
+        recoverAction.removeAttribute("data-hidden");
     })
 
     removeAction.addEventListener("click", () => {
         if(removeAction.textContent === "remove"){
 
-            if(taskContainer.classList.contains("things-to-do__item")){
-                taskContainer.classList.remove("things-to-do__item");
-                actionsWithTheTask.replaceChild(recoverAction, editAction);
-                actionsWithTheTask.removeChild(completeAction);
-            } else if(taskContainer.classList.contains("things-completed__item")){
-                taskContainer.classList.remove("things-completed__item");
-            }
+            completeAction.setAttribute("data-hidden", true);
+            editAction.setAttribute("data-hidden", true);
+            recoverAction.removeAttribute("data-hidden");
 
-            taskContainer.classList.add("things-removed__item");
-            removedList.appendChild(taskContainer);
+            if(recoverAction.textContent == "undo") recoverAction.textContent = "recover";
+
+            tasklistItem.classList.add("removed-container__item");
+
+            removedList.insertBefore(tasklistItem, removedList.children[0]);
 
             removeAction.textContent = "remove completely";
         } else if(removeAction.textContent === "remove completely"){
-            removedList.removeChild(taskContainer);
+            const controlQuestion = confirm("Are you sure you want to delete this permanently?");
+
+            if(!controlQuestion) return;
+
+            removedList.removeChild(tasklistItem);
         }
     })
 
     recoverAction.addEventListener("click", () => {
-        
-        if(taskContainer.classList.contains("things-completed__item")){
-            taskContainer.classList.remove("things-completed__item");
-        } else if(taskContainer.classList.contains("things-removed__item")){
-            taskContainer.classList.remove("things-removed__item");
-            removeAction.textContent = "remove";
+
+        if(recoverAction.textContent === "undo"){
+            tasklistItem.classList.remove("completed-container__item");
+
+            recoverAction.setAttribute("data-hidden", true);
+            recoverAction.textContent = "recover";
+
+            completeAction.removeAttribute("data-hidden");
+            editAction.removeAttribute("data-hidden");
+    
+            tasklistItem.classList.add("actual-container__item");
+            
+            toDoList.insertBefore(tasklistItem, toDoList.children[0]);
+
+        } else if(recoverAction.textContent === "recover"){
+            tasklistItem.classList.remove("removed-container__item");
+
+            if(tasklistItem.classList.contains("completed-container__item")){
+
+                recoverAction.textContent = "undo";
+                removeAction.textContent = "remove";
+
+                completedList.insertBefore(tasklistItem, completedList.children[0]);
+
+            } else if(!tasklistItem.classList.contains("completed-container__item")){
+
+                removeAction.textContent = "remove";
+
+                toDoList.insertBefore(tasklistItem, toDoList.children[0]);
+
+                recoverAction.setAttribute("data-hidden", true);
+                completeAction.removeAttribute("data-hidden");
+                editAction.removeAttribute("data-hidden");
+            }
         }
-
-        actionsWithTheTask.replaceChild(editAction, recoverAction);
-        actionsWithTheTask.appendChild(completeAction);
-
-        taskContainer.classList.add("things-to-do__item");
-        toDoList.appendChild(taskContainer);
 
     })
 

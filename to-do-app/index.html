@@ -10,53 +10,44 @@
 </head>
 <body>
     <header class="header">
-        <div class="container container--px">
-            <h1 class="uppercase">to do</h1>
-            <nav class="tabs-bar" role="tablist">
-                <button class="tabs-bar__item" aria-controls="things-to-do" aria-selected="true" tabindex="0" role="tab">to do</button>
-                <button class="tabs-bar__item" aria-controls="things-completed" aria-selected="false" tabindex="-1" role="tab">completed</button>
-                <button class="tabs-bar__item" aria-controls="things-removed" aria-selected="false" tabindex="-1" role="tab">removed</button>
-            </nav>
+        <div class="container container--px container--pt">
+            <h1 class="header__title uppercase">to<span>do</span></h1>
         </div>
     </header>
+
     <main id="main">
-
-        <section class="input-section">
+        <nav class="tabs-bar" role="tablist">
             <div class="container container--px">
-                <form class="new-task-form" action="#">
-                    <label for="new-task">
-                        <input id="new-task" type="text" placeholder="New thing to do today">
-                    </label>
-                    <button type="submit" class="btn-add">Add</button>
-                </form>
+                <button class="tabs-bar__item uppercase" aria-controls="actual" aria-selected="true" tabindex="0" role="tab">actual</button>
+                <button class="tabs-bar__item uppercase" aria-controls="completed" aria-selected="false" tabindex="-1" role="tab">completed</button>
+                <button class="tabs-bar__item uppercase" aria-controls="removed" aria-selected="false" tabindex="-1" role="tab">removed</button>
             </div>
-        </section>
+        </nav>
 
-        <section id="things-to-do" class="things-to-do" role="tabpanel" tabindex="0">
-            <div class="container">
-                <ul class="things-to-do__list">
-                    <!-- <li class="things-to-do__item"></li> -->
-                </ul>
-            </div>
-        </section>
+        <section class="task-container">
+            <div class="container container--px">
 
-        <section id="things-completed" class="things-completed" role="tabpanel" tabindex="0" data-hidden="true">
-            <div class="container">
-                <ul class="things-completed__list">
-                    <!-- <li class="things-to-do__item"></li> -->
-                </ul>
-            </div>
-        </section>
+                <div id="actual" class="actual-container" role="tabpanel">
+                    <ul class="actual-container__list" tabindex="0"></ul>
+                    <form class="new-task-form flex flex--ai-c" action="#">
+                        <label for="new-task">
+                            <textarea id="new-task" class="new-task-form__input-field textarea-task" aria-label="new task area" placeholder="what do you wanna do?" rows="1" autofocus></textarea>
+                        </label>
+                        <button id="btn-add" type="submit" class="btn-control add" aria-label="create new task"><img src="images/plus-icon.svg" alt="plus"></button>
+                    </form>
+                </div>
 
-        <section id="things-removed" class="things-removed" role="tabpanel" tabindex="0" data-hidden="true">
-            <div class="container">
-                <ul class="things-removed__list">
-                    <!-- <li class="things-to-do__item"></li> -->
-                </ul>
+                <div id="completed" class="completed-container" role="tabpanel" data-hidden="true">
+                    <ul class="completed-container__list" tabindex="0"></ul>
+                </div>
+
+                <div id="removed" class="removed-container" role="tabpanel" data-hidden="true">
+                    <ul class="removed-container__list" tabindex="0"></ul>
+                </div>
             </div>
-        </section>
-        
+        </section>    
     </main>
+
     <script src="js/to-do-logic.js"></script>
     <script src="js/to-do-tabsbar.js"></script>
 

@@ -1,0 +1,22 @@
+.tabs-bar
+	margin-bottom: $space-s
+
+	&__item
+		padding-top: 0.3125rem
+		padding-bottom: 0.3125rem
+		display: block
+		width: 100%
+		text-align: right
+		letter-spacing: 5px
+		background-color: transparent
+		border: 0
+		border-radius: 5px
+		cursor: pointer
+		transition: letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out
+
+		&:hover
+			background-color: $clr-light
+			letter-spacing: 7px
+
+		&[aria-selected="true"]
+			background-color: $clr-accent

@@ -26,6 +26,7 @@ h1,
 h2,
 h3
 	margin: 0
+	font-weight: 300
 
 a,
 a:hover,
@@ -44,8 +45,8 @@ body
 	font-size: $font-s
 	font-weight: 300
 	line-height: 1.5
-	color: $color-1
-	background-color: lightgreen
+	color: $clr-black
+	background-color: $clr-primary
 	overflow-x: hidden
 
 /* Inherit font-sizes for inputs and buttons */
@@ -79,6 +80,60 @@ select
 	&--px
 		padding-right: 1.5rem
 		padding-left: 1.5rem
+
+	&--pt
+		padding-top: 1.5rem
+
+.flex
+	display: flex
+
+	&--jc-c
+		justify-content: center
+
+	&--ai-c
+		align-items: center
+
+.btn-controls-container
+	padding-right: 0.3125rem
+	padding-bottom: 0.3125rem
+	display: flex
+	justify-content: flex-end
+	gap: 0.625rem
+
+.btn-control
+	letter-spacing: 1px
+	background-color: transparent
+	border: 1px solid $clr-accent
+	border-radius: 5px
+	cursor: pointer
+
+	&:hover,
+	&:focus
+		background-color: hsl(270, 78%, 80%)
+
+.textarea-task
+	padding: 0.625rem
+	width: 100%
+	background-color: transparent
+	border: 0
+	border-bottom: 1px solid $clr-primary
+	outline: none
+	resize: none
+
+	&:focus
+		border-width: 2px	
+
+		&::placeholder
+			opacity: 0.5
+
+.date-holder
+	padding: 0.3125rem
+	display: block
+	text-align: right
+	font-size: 0.625rem
+	letter-spacing: 1px
+	background-color: $clr-details
+	border-radius: 5px 5px 0 0 
 
 
 /*	------------------	*/
@@ -116,3 +171,4 @@ select
 	white-space: nowrap
 	/* added line end */
 	border: none
+
