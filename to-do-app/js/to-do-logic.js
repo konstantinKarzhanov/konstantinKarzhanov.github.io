@@ -22,10 +22,10 @@ newTaskForm.addEventListener("submit", (event) => {
     toDoList.insertBefore(tasklistItem, toDoList.children[0]);
 
     const tasklistValue = document.createElement("textarea");
-
     tasklistValue.classList.add("textarea-task");
     tasklistValue.value = newTask;
     tasklistValue.setAttribute("rows", 1);
+    tasklistValue.setAttribute("aria-label", "created task");
     tasklistValue.setAttribute("readonly", "readonly");
     tasklistItem.appendChild(tasklistValue);
 

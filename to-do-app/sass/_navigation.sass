@@ -1,5 +1,9 @@
 .tabs-bar
-	margin-bottom: $space-s
+	grid-column: 2 / 3
+	grid-row: 2 / 3
+
+	@include breakpoint-up(medium)
+		margin-bottom: 0
 
 	&__item
 		padding-top: 0.3125rem
@@ -13,6 +17,9 @@
 		border-radius: 5px
 		cursor: pointer
 		transition: letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out
+
+		@include breakpoint-up(medium)
+			text-align: left
 
 		&:hover
 			background-color: $clr-light

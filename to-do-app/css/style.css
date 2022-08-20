@@ -1,7 +1,6 @@
-/* colors */
+/* mixins, breakpoints, media queries */ /* colors */
 /* font-families */
 /* fonts-sizes */
-/* spaces */
 /*	------------------	*/
 /*	resets				*/
 /*	------------------	*/
@@ -94,8 +93,15 @@ select {
   padding-right: 1.5rem;
   padding-left: 1.5rem;
 }
+.container--py {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
 .container--pt {
   padding-top: 1.5rem;
+}
+.container--pb {
+  padding-bottom: 1.5rem;
 }
 
 .flex {
@@ -112,6 +118,20 @@ select {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.grid-container {
+  display: grid;
+  row-gap: 2rem;
+}
+.grid-container--main {
+  grid-template-columns: 1.5rem 1fr 1.5rem;
+}
+@media (min-width: 40rem) {
+  .grid-container--main {
+    grid-template-columns: minmax(1.5rem, 1fr) minmax(-webkit-max-content, 12.5rem) minmax(18.75rem, 31.25rem) minmax(1.5rem, 1fr);
+    grid-template-columns: minmax(1.5rem, 1fr) minmax(max-content, 12.5rem) minmax(18.75rem, 31.25rem) minmax(1.5rem, 1fr);
+  }
 }
 
 .btn-controls-container {
@@ -132,6 +152,8 @@ select {
   border: 1px solid hsl(0deg, 79%, 72%);
   border-radius: 5px;
   cursor: pointer;
+  -webkit-transition: background-color 300ms ease-in-out;
+  transition: background-color 300ms ease-in-out;
 }
 .btn-control:hover, .btn-control:focus {
   background-color: hsl(270deg, 78%, 80%);
@@ -209,12 +231,17 @@ select {
   border: none;
 }
 
+.header {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
 .header__title {
-  margin-bottom: 2.5rem;
   text-align: left;
   font-size: clamp(2rem, 7vw, 4rem);
-  letter-spacing: 12px;
+  letter-spacing: clamp(12px, 2.3vw, 20px);
   line-height: 1.1;
+  color: hsl(0deg, 79%, 72%);
+  text-shadow: 0px 1px 2px black;
 }
 .header__title > span {
   display: block;
@@ -222,7 +249,13 @@ select {
 }
 
 .tabs-bar {
-  margin-bottom: 2.5rem;
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+@media (min-width: 40rem) {
+  .tabs-bar {
+    margin-bottom: 0;
+  }
 }
 .tabs-bar__item {
   padding-top: 0.3125rem;
@@ -238,44 +271,30 @@ select {
   -webkit-transition: letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out;
   transition: letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out;
 }
+@media (min-width: 40rem) {
+  .tabs-bar__item {
+    text-align: left;
+  }
+}
 .tabs-bar__item:hover {
-  background-color: hsl(193deg, 53%, 85%);
+  background-color: hsla(257deg, 100%, 99%, 0.5);
   letter-spacing: 7px;
 }
 .tabs-bar__item[aria-selected=true] {
   background-color: hsl(0deg, 79%, 72%);
 }
 
-.actual-container__list,
-.completed-container__list,
-.removed-container__list {
-  margin-bottom: 2.5rem;
-}
-.actual-container__list > *:not(:last-child),
-.completed-container__list > *:not(:last-child),
-.removed-container__list > *:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-.actual-container__item,
-.completed-container__item,
-.removed-container__item {
-  background-color: hsl(193deg, 53%, 85%);
-  border-radius: 5px;
-  -webkit-box-shadow: 1px 1px 5px black;
-          box-shadow: 1px 1px 5px black;
-}
-
-.completed-container__item {
-  background-color: hsl(89deg, 79%, 85%);
-}
-
-.removed-container__item {
-  background-color: transparent;
-}
-
 .new-task-form {
   gap: 1rem;
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+@media (min-width: 40rem) {
+  .new-task-form {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    align-self: end;
+  }
 }
 .new-task-form label {
   -webkit-box-flex: 1;
@@ -314,7 +333,34 @@ select {
   transition: transform 300ms ease-in-out, background-color 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
 }
 .new-task-form .add:hover, .new-task-form .add:focus {
-  background-color: hsl(270deg, 78%, 80%);
+  background-color: hsla(257deg, 100%, 99%, 0.5);
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.task-container {
+  grid-column: 2/3;
+  grid-row: 4/5;
+}
+@media (min-width: 40rem) {
+  .task-container {
+    padding: 0 1rem;
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+}
+
+.actual-container__list > *:not(:last-child),
+.completed-container__list > *:not(:last-child),
+.removed-container__list > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.actual-container__item,
+.completed-container__item,
+.removed-container__item {
+  background-color: hsla(257deg, 100%, 99%, 0.5);
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 3px hsl(0deg, 0%, 0%);
+          box-shadow: 1px 1px 3px hsl(0deg, 0%, 0%);
 }/*# sourceMappingURL=style.css.map */

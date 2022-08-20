@@ -9,43 +9,40 @@
     <title>to-do-list</title>
 </head>
 <body>
-    <header class="header">
-        <div class="container container--px container--pt">
-            <h1 class="header__title uppercase">to<span>do</span></h1>
-        </div>
-    </header>
 
-    <main id="main">
+    <main id="main" class="container container--py grid-container grid-container--main">
+
+        <header class="header">
+            <h1 class="header__title uppercase">to<span>do</span></h1>
+        </header>
+        
         <nav class="tabs-bar" role="tablist">
-            <div class="container container--px">
-                <button class="tabs-bar__item uppercase" aria-controls="actual" aria-selected="true" tabindex="0" role="tab">actual</button>
-                <button class="tabs-bar__item uppercase" aria-controls="completed" aria-selected="false" tabindex="-1" role="tab">completed</button>
-                <button class="tabs-bar__item uppercase" aria-controls="removed" aria-selected="false" tabindex="-1" role="tab">removed</button>
-            </div>
+            <button class="tabs-bar__item uppercase" aria-controls="actual" aria-selected="true" tabindex="0" role="tab">actual</button>
+            <button class="tabs-bar__item uppercase" aria-controls="completed" aria-selected="false" tabindex="-1" role="tab">completed</button>
+            <button class="tabs-bar__item uppercase" aria-controls="removed" aria-selected="false" tabindex="-1" role="tab">removed</button>
         </nav>
 
+        <form class="new-task-form flex flex--ai-c" action="#">
+            <label for="new-task">
+                <textarea id="new-task" class="new-task-form__input-field textarea-task" aria-label="new task area" placeholder="what do you wanna do?" rows="1" autofocus></textarea>
+            </label>
+            <button id="btn-add" type="submit" class="btn-control add" aria-label="create new task"><img src="images/plus-icon.svg" alt="plus"></button>
+        </form>
+
         <section class="task-container">
-            <div class="container container--px">
-
-                <div id="actual" class="actual-container" role="tabpanel">
-                    <ul class="actual-container__list" tabindex="0"></ul>
-                    <form class="new-task-form flex flex--ai-c" action="#">
-                        <label for="new-task">
-                            <textarea id="new-task" class="new-task-form__input-field textarea-task" aria-label="new task area" placeholder="what do you wanna do?" rows="1" autofocus></textarea>
-                        </label>
-                        <button id="btn-add" type="submit" class="btn-control add" aria-label="create new task"><img src="images/plus-icon.svg" alt="plus"></button>
-                    </form>
-                </div>
-
-                <div id="completed" class="completed-container" role="tabpanel" data-hidden="true">
-                    <ul class="completed-container__list" tabindex="0"></ul>
-                </div>
-
-                <div id="removed" class="removed-container" role="tabpanel" data-hidden="true">
-                    <ul class="removed-container__list" tabindex="0"></ul>
-                </div>
+            <div id="actual" class="actual-container" role="tabpanel">
+                <ul class="actual-container__list" tabindex="0"></ul>
             </div>
-        </section>    
+
+            <div id="completed" class="completed-container" role="tabpanel" data-hidden="true">
+                <ul class="completed-container__list" tabindex="0"></ul>
+            </div>
+
+            <div id="removed" class="removed-container" role="tabpanel" data-hidden="true">
+                <ul class="removed-container__list" tabindex="0"></ul>
+            </div>
+        </section>  
+
     </main>
 
     <script src="js/to-do-logic.js"></script>

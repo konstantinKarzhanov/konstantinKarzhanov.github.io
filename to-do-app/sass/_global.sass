@@ -81,8 +81,15 @@ select
 		padding-right: 1.5rem
 		padding-left: 1.5rem
 
+	&--py
+		padding-top: 1.5rem 
+		padding-bottom: 1.5rem 
+
 	&--pt
 		padding-top: 1.5rem
+
+	&--pb
+		padding-bottom: 1.5rem 
 
 .flex
 	display: flex
@@ -92,6 +99,16 @@ select
 
 	&--ai-c
 		align-items: center
+
+.grid-container
+	display: grid
+	row-gap: 2rem
+
+	&--main
+		grid-template-columns: 1.5rem 1fr 1.5rem
+
+		@include breakpoint-up(medium)
+			grid-template-columns: minmax(1.5rem, 1fr) minmax(max-content, 12.5rem) minmax(18.75rem, 31.25rem) minmax(1.5rem, 1fr)
 
 .btn-controls-container
 	padding-right: 0.3125rem
@@ -106,6 +123,7 @@ select
 	border: 1px solid $clr-accent
 	border-radius: 5px
 	cursor: pointer
+	transition: background-color 300ms ease-in-out
 
 	&:hover,
 	&:focus
