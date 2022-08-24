@@ -1,10 +1,7 @@
 .tabs-bar
 	grid-column: 2 / 3
 	grid-row: 2 / 3
-
-	@include breakpoint-up(medium)
-		margin-bottom: 0
-
+		
 	&__item
 		padding-top: 0.3125rem
 		padding-bottom: 0.3125rem
@@ -16,14 +13,16 @@
 		border: 0
 		border-radius: 5px
 		cursor: pointer
-		transition: letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out
+		transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out
 
 		@include breakpoint-up(medium)
 			text-align: left
 
-		&:hover
-			background-color: $clr-light
+		&:hover,
+		&:focus
+			opacity: 85%
 			letter-spacing: 7px
+			background-color: $clr-light
 
 		&[aria-selected="true"]
 			background-color: $clr-accent

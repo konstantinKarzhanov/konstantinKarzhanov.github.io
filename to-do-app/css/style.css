@@ -1,6 +1,7 @@
 /* mixins, breakpoints, media queries */ /* colors */
 /* font-families */
 /* fonts-sizes */
+/* gaps */
 /*	------------------	*/
 /*	resets				*/
 /*	------------------	*/
@@ -122,10 +123,10 @@ select {
 
 .grid-container {
   display: grid;
-  row-gap: 2rem;
 }
 .grid-container--main {
   grid-template-columns: 1.5rem 1fr 1.5rem;
+  row-gap: 2rem;
 }
 @media (min-width: 40rem) {
   .grid-container--main {
@@ -252,11 +253,6 @@ select {
   grid-column: 2/3;
   grid-row: 2/3;
 }
-@media (min-width: 40rem) {
-  .tabs-bar {
-    margin-bottom: 0;
-  }
-}
 .tabs-bar__item {
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
@@ -268,17 +264,18 @@ select {
   border: 0;
   border-radius: 5px;
   cursor: pointer;
-  -webkit-transition: letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out;
-  transition: letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out;
+  -webkit-transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out;
 }
 @media (min-width: 40rem) {
   .tabs-bar__item {
     text-align: left;
   }
 }
-.tabs-bar__item:hover {
-  background-color: hsla(257deg, 100%, 99%, 0.5);
+.tabs-bar__item:hover, .tabs-bar__item:focus {
+  opacity: 85%;
   letter-spacing: 7px;
+  background-color: hsla(257deg, 100%, 99%, 0.5);
 }
 .tabs-bar__item[aria-selected=true] {
   background-color: hsl(0deg, 79%, 72%);
@@ -291,6 +288,7 @@ select {
 }
 @media (min-width: 40rem) {
   .new-task-form {
+    margin-left: 1rem;
     grid-column: 3/4;
     grid-row: 1/2;
     align-self: end;
@@ -327,6 +325,8 @@ select {
   border: 1px solid hsl(0deg, 79%, 72%);
   outline: none;
   border-radius: 50%;
+  -webkit-transform: scale(1);
+          transform: scale(1);
   -webkit-transition: background-color 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
   transition: background-color 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
   transition: transform 300ms ease-in-out, background-color 300ms ease-in-out;
@@ -344,7 +344,7 @@ select {
 }
 @media (min-width: 40rem) {
   .task-container {
-    padding: 0 1rem;
+    margin-left: 1rem;
     grid-column: 3/4;
     grid-row: 2/3;
   }

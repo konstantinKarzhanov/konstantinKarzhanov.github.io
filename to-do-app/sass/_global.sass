@@ -102,10 +102,10 @@ select
 
 .grid-container
 	display: grid
-	row-gap: 2rem
 
 	&--main
 		grid-template-columns: 1.5rem 1fr 1.5rem
+		row-gap: 2rem
 
 		@include breakpoint-up(medium)
 			grid-template-columns: minmax(1.5rem, 1fr) minmax(max-content, 12.5rem) minmax(18.75rem, 31.25rem) minmax(1.5rem, 1fr)

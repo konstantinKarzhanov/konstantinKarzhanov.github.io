@@ -10,21 +10,22 @@ tabItems.forEach((item) => {
 
 function changeTabFocus(event){
 	const currentKey = event.keyCode;
-	const arrowLeft = 37;
-	const arrowRight = 39;
+	console.log(currentKey);
+	const arrowTop = 38;
+	const arrowDown = 40;
 
-	if(currentKey === arrowLeft || currentKey === arrowRight){
+	if(currentKey === arrowTop || currentKey === arrowDown){
 		tabItems[focusedTab]
 		.setAttribute("tabindex", -1);
 
-		if(currentKey == arrowLeft){
+		if(currentKey == arrowTop){
 			focusedTab--;
 
 			if(focusedTab < 0){
 				focusedTab = tabItems.length - 1;
 			}
 
-		} else if(currentKey == arrowRight){
+		} else if(currentKey == arrowDown){
 			focusedTab++;
 
 			if(focusedTab >= tabItems.length){
