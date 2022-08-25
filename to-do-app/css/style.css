@@ -128,7 +128,7 @@ select {
   grid-template-columns: 1.5rem 1fr 1.5rem;
   row-gap: 2rem;
 }
-@media (min-width: 40rem) {
+@media (min-width: 40em) {
   .grid-container--main {
     grid-template-columns: minmax(1.5rem, 1fr) minmax(-webkit-max-content, 12.5rem) minmax(18.75rem, 31.25rem) minmax(1.5rem, 1fr);
     grid-template-columns: minmax(1.5rem, 1fr) minmax(max-content, 12.5rem) minmax(18.75rem, 31.25rem) minmax(1.5rem, 1fr);
@@ -160,7 +160,7 @@ select {
 .btn-control:focus {
   background-color: hsl(270deg, 78%, 80%);
 }
-@media (min-width: 64rem) {
+@media (min-width: 64em) {
   .btn-control:hover {
     background-color: hsl(270deg, 78%, 80%);
   }
@@ -274,12 +274,12 @@ select {
   -webkit-transition: opacity 150ms ease-in-out, letter-spacing 150ms ease-in-out, background-color 150ms ease-in-out;
   transition: opacity 150ms ease-in-out, letter-spacing 150ms ease-in-out, background-color 150ms ease-in-out;
 }
-@media (min-width: 40rem) {
+@media (min-width: 40em) {
   .tabs-bar__item {
     text-align: left;
   }
 }
-@media (min-width: 64rem) {
+@media (min-width: 64em) {
   .tabs-bar__item:hover {
     opacity: 85%;
     letter-spacing: 7px;
@@ -296,7 +296,7 @@ select {
   grid-column: 2/3;
   grid-row: 3/4;
 }
-@media (min-width: 40rem) {
+@media (min-width: 40em) {
   .new-task-form {
     margin-left: 1rem;
     grid-column: 3/4;
@@ -347,7 +347,7 @@ select {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
-@media (min-width: 64rem) {
+@media (min-width: 64em) {
   .new-task-form .add:hover {
     background-color: hsla(257deg, 100%, 99%, 0.5);
     -webkit-transform: scale(1.1);
@@ -359,7 +359,7 @@ select {
   grid-column: 2/3;
   grid-row: 4/5;
 }
-@media (min-width: 40rem) {
+@media (min-width: 40em) {
   .task-container {
     margin-left: 1rem;
     grid-column: 3/4;
