@@ -28,9 +28,10 @@ newTaskForm.addEventListener("submit", (event) => {
 
     inputField.value = null;
 
+	focusOnPanel(toDoContainer);
+
 	saveAndRender();
 })
-
 
 function createArrayItem(itemName){
 	return {
@@ -39,6 +40,26 @@ function createArrayItem(itemName){
 		flag: "actual",
 		status: "actual",
 	}
+}
+
+function focusOnPanel(focusedPanel){
+	const controlledByTab = focusedPanel.getAttribute("id");
+
+	tabContainer
+	.querySelector("[aria-selected='true']")
+	.setAttribute("aria-selected", false);
+
+	tabContainer
+	.querySelector(`[aria-controls='${controlledByTab}']`)
+	.setAttribute("aria-selected", true);
+
+	document
+	.querySelectorAll("[role='tabpanel']")
+	.forEach((panel) => {
+		panel.setAttribute("data-hidden", true);
+	})
+
+	focusedPanel.removeAttribute("data-hidden");
 }
 
 function render(){
@@ -199,6 +220,14 @@ function render(){
 	})
 }
 
+function clearList(...lists){
+	lists.forEach((list) => {
+		while(list.firstChild){
+			list.removeChild(list.firstChild);
+		}
+	})
+}
+
 function createDateHolder(parentElement, arrayItem){
 	const taskDate = new Date(+arrayItem.id);
 	const taskDateFormatted = taskDate.toLocaleString();
@@ -216,12 +245,4 @@ function saveList(){
 function saveAndRender(){
 	saveList();
 	render();
-}
-
-function clearList(...lists){
-	lists.forEach((list) => {
-		while(list.firstChild){
-			list.removeChild(list.firstChild);
-		}
-	})
 }

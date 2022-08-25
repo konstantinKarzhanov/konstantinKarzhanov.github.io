@@ -10,7 +10,6 @@ tabItems.forEach((item) => {
 
 function changeTabFocus(event){
 	const currentKey = event.keyCode;
-	console.log(currentKey);
 	const arrowTop = 38;
 	const arrowDown = 40;
 
@@ -63,4 +62,3 @@ function changePanelFocus(event){
 	.removeAttribute("data-hidden");
 
 }
-
