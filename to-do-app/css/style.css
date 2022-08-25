@@ -264,8 +264,8 @@ select {
   border: 0;
   border-radius: 5px;
   cursor: pointer;
-  -webkit-transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out;
+  -webkit-transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out;
+  transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out;
 }
 @media (min-width: 40rem) {
   .tabs-bar__item {
@@ -275,7 +275,6 @@ select {
 .tabs-bar__item:hover, .tabs-bar__item:focus {
   opacity: 85%;
   letter-spacing: 7px;
-  background-color: hsla(257deg, 100%, 99%, 0.5);
 }
 .tabs-bar__item[aria-selected=true] {
   background-color: hsl(0deg, 79%, 72%);
