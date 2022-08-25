@@ -149,6 +149,7 @@ select {
 
 .btn-control {
   letter-spacing: 1px;
+  color: hsl(0deg, 0%, 0%);
   background-color: transparent;
   border: 1px solid hsl(0deg, 79%, 72%);
   border-radius: 5px;
@@ -156,8 +157,13 @@ select {
   -webkit-transition: background-color 300ms ease-in-out;
   transition: background-color 300ms ease-in-out;
 }
-.btn-control:hover, .btn-control:focus {
+.btn-control:focus {
   background-color: hsl(270deg, 78%, 80%);
+}
+@media (min-width: 64rem) {
+  .btn-control:hover {
+    background-color: hsl(270deg, 78%, 80%);
+  }
 }
 
 .textarea-task {
@@ -260,23 +266,27 @@ select {
   width: 100%;
   text-align: right;
   letter-spacing: 5px;
+  color: hsl(0deg, 0%, 0%);
   background-color: transparent;
   border: 0;
   border-radius: 5px;
   cursor: pointer;
-  -webkit-transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out;
-  transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out;
+  -webkit-transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out, background-color 300ms ease-in-out;
 }
 @media (min-width: 40rem) {
   .tabs-bar__item {
     text-align: left;
   }
 }
-.tabs-bar__item:hover, .tabs-bar__item:focus {
-  opacity: 85%;
-  letter-spacing: 7px;
+@media (min-width: 64rem) {
+  .tabs-bar__item:hover {
+    opacity: 85%;
+    background-color: hsla(257deg, 100%, 99%, 0.5);
+  }
 }
 .tabs-bar__item[aria-selected=true] {
+  letter-spacing: 7px;
   background-color: hsl(0deg, 79%, 72%);
 }
 
@@ -331,10 +341,17 @@ select {
   transition: transform 300ms ease-in-out, background-color 300ms ease-in-out;
   transition: transform 300ms ease-in-out, background-color 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
 }
-.new-task-form .add:hover, .new-task-form .add:focus {
+.new-task-form .add:focus {
   background-color: hsla(257deg, 100%, 99%, 0.5);
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+@media (min-width: 64rem) {
+  .new-task-form .add:hover {
+    background-color: hsla(257deg, 100%, 99%, 0.5);
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
 }
 
 .task-container {

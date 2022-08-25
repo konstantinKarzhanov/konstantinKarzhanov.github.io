@@ -119,15 +119,19 @@ select
 
 .btn-control
 	letter-spacing: 1px
+	color: $clr-black
 	background-color: transparent
 	border: 1px solid $clr-accent
 	border-radius: 5px
 	cursor: pointer
 	transition: background-color 300ms ease-in-out
 
-	&:hover,
 	&:focus
 		background-color: hsl(270, 78%, 80%)
+
+	@include breakpoint-up(large)
+		&:hover
+			background-color: hsl(270, 78%, 80%)
 
 .textarea-task
 	padding: 0.625rem
