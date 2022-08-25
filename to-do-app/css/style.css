@@ -159,8 +159,10 @@ select {
 }
 .btn-control:focus {
   background-color: hsl(270deg, 78%, 80%);
+  outline-offset: 8px;
+  outline-color: hsl(270deg, 78%, 80%);
 }
-@media (min-width: 64em) {
+@media (hover: hover) {
   .btn-control:hover {
     background-color: hsl(270deg, 78%, 80%);
   }
@@ -177,21 +179,22 @@ select {
 }
 .textarea-task:focus {
   border-width: 2px;
+  border-color: hsl(0deg, 79%, 72%);
 }
 .textarea-task:focus::-webkit-input-placeholder {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 .textarea-task:focus::-moz-placeholder {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 .textarea-task:focus:-ms-input-placeholder {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 .textarea-task:focus::-ms-input-placeholder {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 .textarea-task:focus::placeholder {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 .date-holder {
@@ -279,11 +282,11 @@ select {
     text-align: left;
   }
 }
-@media (min-width: 64em) {
+@media (hover: hover) {
   .tabs-bar__item:hover {
-    opacity: 85%;
     letter-spacing: 7px;
     background-color: hsla(257deg, 100%, 99%, 0.5);
+    opacity: 85%;
   }
 }
 .tabs-bar__item[aria-selected=true] {
@@ -343,15 +346,18 @@ select {
   transition: transform 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
 }
 .new-task-form .add:focus {
-  background-color: hsla(257deg, 100%, 99%, 0.5);
+  background-color: hsl(0deg, 79%, 72%);
+  -webkit-box-shadow: inset 0px 0px 0 3px hsl(0deg, 0%, 83%);
+          box-shadow: inset 0px 0px 0 3px hsl(0deg, 0%, 83%);
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
-@media (min-width: 64em) {
+@media (hover: hover) {
   .new-task-form .add:hover {
     background-color: hsla(257deg, 100%, 99%, 0.5);
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
+    opacity: 85%;
   }
 }
 

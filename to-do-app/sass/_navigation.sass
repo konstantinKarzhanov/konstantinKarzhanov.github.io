@@ -19,11 +19,11 @@
 		@include breakpoint-up(medium)
 			text-align: left
 
-		@include breakpoint-up(large)
+		@include hover-devices
 			&:hover
-				opacity: 85%
 				letter-spacing: 7px
 				background-color: $clr-light
+				opacity: 85%
 
 		&[aria-selected="true"]
 			letter-spacing: 7px

@@ -14,7 +14,7 @@
 		order: 2
 
 	&__input-field
-		border-bottom: 1px solid $clr-accent			
+		border-bottom: 1px solid $clr-accent		
 	
 	.add
 		padding: 0
@@ -32,12 +32,12 @@
 		transition: transform 150ms ease-in-out, background-color 150ms ease-in-out
 
 		&:focus
-			background-color: $clr-light
+			background-color: $clr-accent
+			box-shadow: inset 0px 0px 0 3px $clr-primary
 			transform: scale(1.1)
 
-		@include breakpoint-up(large)
+		@include hover-devices
 			&:hover
 				background-color: $clr-light
 				transform: scale(1.1)
-
-	
+				opacity: 85%

@@ -127,11 +127,13 @@ select
 	transition: background-color 150ms ease-in-out
 
 	&:focus
-		background-color: hsl(270, 78%, 80%)
+		background-color: $clr-details
+		outline-offset: 8px
+		outline-color: $clr-details
 
-	@include breakpoint-up(large)
+	@include hover-devices
 		&:hover
-			background-color: hsl(270, 78%, 80%)
+			background-color: $clr-details
 
 .textarea-task
 	padding: 0.625rem
@@ -142,11 +144,12 @@ select
 	outline: none
 	resize: none
 
-	&:focus
-		border-width: 2px	
+	&:focus	
+		border-width: 2px
+		border-color: $clr-accent
 
 		&::placeholder
-			opacity: 0.5
+			opacity: 0.2
 
 .date-holder
 	padding: 0.3125rem

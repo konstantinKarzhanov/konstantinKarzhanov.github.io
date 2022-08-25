@@ -13,3 +13,7 @@ $breakpoints-down: ("small": 39.9375em, "medium": 63.9375em)
 @mixin breakpoint-down($screen-size)
 	@media (max-width: map-get($breakpoints-down, $screen-size))
 		@content
+
+@mixin hover-devices
+	@media (hover: hover)
+		@content
