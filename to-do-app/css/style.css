@@ -154,8 +154,8 @@ select {
   border: 1px solid hsl(0deg, 79%, 72%);
   border-radius: 5px;
   cursor: pointer;
-  -webkit-transition: background-color 300ms ease-in-out;
-  transition: background-color 300ms ease-in-out;
+  -webkit-transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out;
 }
 .btn-control:focus {
   background-color: hsl(270deg, 78%, 80%);
@@ -271,8 +271,8 @@ select {
   border: 0;
   border-radius: 5px;
   cursor: pointer;
-  -webkit-transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out;
-  transition: opacity 300ms ease-in-out, letter-spacing 150ms ease-in-out;
+  -webkit-transition: opacity 150ms ease-in-out, letter-spacing 150ms ease-in-out, background-color 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, letter-spacing 150ms ease-in-out, background-color 150ms ease-in-out;
 }
 @media (min-width: 40rem) {
   .tabs-bar__item {
@@ -336,10 +336,10 @@ select {
   border-radius: 50%;
   -webkit-transform: scale(1);
           transform: scale(1);
-  -webkit-transition: background-color 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
-  transition: background-color 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
-  transition: transform 300ms ease-in-out, background-color 300ms ease-in-out;
-  transition: transform 300ms ease-in-out, background-color 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+  -webkit-transition: background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, background-color 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
 }
 .new-task-form .add:focus {
   background-color: hsla(257deg, 100%, 99%, 0.5);
