@@ -282,6 +282,7 @@ select {
 @media (min-width: 64rem) {
   .tabs-bar__item:hover {
     opacity: 85%;
+    letter-spacing: 7px;
     background-color: hsla(257deg, 100%, 99%, 0.5);
   }
 }
