@@ -154,18 +154,26 @@ select {
   border: 1px solid hsl(0deg, 79%, 72%);
   border-radius: 5px;
   cursor: pointer;
-  -webkit-transition: background-color 150ms ease-in-out;
-  transition: background-color 150ms ease-in-out;
-}
-.btn-control:focus {
-  background-color: hsl(270deg, 78%, 80%);
-  outline-offset: 8px;
-  outline-color: hsl(270deg, 78%, 80%);
+  -webkit-transition: opacity 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, background-color 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  outline: none;
 }
 @media (hover: hover) {
   .btn-control:hover {
-    background-color: hsl(270deg, 78%, 80%);
+    background-color: hsla(257deg, 100%, 99%, 0.5);
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+    opacity: 85%;
   }
+}
+.btn-control:focus {
+  -webkit-box-shadow: 0px 0px 10px 3px hsl(0deg, 79%, 72%);
+          box-shadow: 0px 0px 10px 3px hsl(0deg, 79%, 72%);
+}
+.btn-control:active {
+  background-color: hsl(270deg, 78%, 80%);
 }
 
 .textarea-task {
@@ -340,17 +348,10 @@ select {
   border-radius: 50%;
   -webkit-transform: scale(1);
           transform: scale(1);
-  -webkit-transition: background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
-  transition: background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
-  transition: transform 150ms ease-in-out, background-color 150ms ease-in-out;
-  transition: transform 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
-}
-.new-task-form .add:focus {
-  background-color: hsl(0deg, 79%, 72%);
-  -webkit-box-shadow: inset 0px 0px 0 3px hsl(0deg, 0%, 83%);
-          box-shadow: inset 0px 0px 0 3px hsl(0deg, 0%, 83%);
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transition: opacity 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, background-color 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
 }
 @media (hover: hover) {
   .new-task-form .add:hover {
@@ -359,6 +360,13 @@ select {
             transform: scale(1.1);
     opacity: 85%;
   }
+}
+.new-task-form .add:focus {
+  -webkit-box-shadow: 0px 0px 10px 3px hsl(0deg, 79%, 72%);
+          box-shadow: 0px 0px 10px 3px hsl(0deg, 79%, 72%);
+}
+.new-task-form .add:active {
+  background-color: hsl(0deg, 79%, 72%);
 }
 
 .task-container {

@@ -75,41 +75,41 @@ function render(){
 		tasklistValue.setAttribute("rows", 1);
 		tasklistValue.setAttribute("aria-label", "created task");
 		tasklistValue.setAttribute("readonly", "readonly");
-		tasklistItem.appendChild(tasklistValue);
+		tasklistItem.append(tasklistValue);
 
 		const actionsWithTheTask = document.createElement("div");
 		actionsWithTheTask.classList.add("btn-controls-container");
-		tasklistItem.appendChild(actionsWithTheTask);
+		tasklistItem.append(actionsWithTheTask);
 
 		const editAction = document.createElement("button");
 		editAction.classList.add("btn-control");
 		editAction.dataset.action = "edit";
 		editAction.textContent = "edit";
-		actionsWithTheTask.appendChild(editAction);
+		actionsWithTheTask.append(editAction);
 	
 		const completeAction = document.createElement("button");
 		completeAction.classList.add("btn-control");
 		completeAction.dataset.action = "complete";
 		completeAction.textContent = "complete";
-		actionsWithTheTask.appendChild(completeAction);
+		actionsWithTheTask.append(completeAction);
 
 		const removeAction = document.createElement("button");
 		removeAction.classList.add("btn-control");
 		removeAction.dataset.action = "remove";
 		removeAction.textContent = "remove";
-		actionsWithTheTask.appendChild(removeAction);
+		actionsWithTheTask.append(removeAction);
 	
 		const recoverAction = document.createElement("button");
 		recoverAction.classList.add("btn-control");
 		recoverAction.dataset.action = "recover";
 		recoverAction.setAttribute("data-hidden", true);
 		recoverAction.textContent = "recover";
-		actionsWithTheTask.appendChild(recoverAction);		
+		actionsWithTheTask.append(recoverAction);		
 
 		if(task.status === "actual"){
 			tasklistItem.classList.add("actual-container__item");
 
-			toDoList.appendChild(tasklistItem);
+			toDoList.append(tasklistItem);
 
 		} else if(task.status === "completed"){
 			tasklistItem.classList.add("completed-container__item");
@@ -119,7 +119,7 @@ function render(){
 			editAction.setAttribute("data-hidden", true);
 			completeAction.setAttribute("data-hidden", true);
 
-			completedList.appendChild(tasklistItem);
+			completedList.append(tasklistItem);
 
 		} else if(task.status === "removed"){
 			tasklistItem.classList.add("removed-container__item");
@@ -129,7 +129,7 @@ function render(){
 			editAction.setAttribute("data-hidden", true);
 			completeAction.setAttribute("data-hidden", true);
 		
-			removedList.appendChild(tasklistItem);
+			removedList.append(tasklistItem);
 		}
 
 		createDateHolder(tasklistItem, task);
@@ -150,7 +150,7 @@ function render(){
 					editAction.textContent = "save";
 
 				} else if(editAction.textContent === "save"){
-					for(task of tasksArray){
+					for(let task of tasksArray){
 						if(task.id === selectedTaskId){
 							task.name = tasklistValue.value;
 							saveList();
@@ -161,7 +161,7 @@ function render(){
 				}
 
 			} else if(action === "complete"){
-				for(task of tasksArray){
+				for(let task of tasksArray){
 					if(task.id === selectedTaskId){
 						task.flag = "completed";
 						task.status = "completed";
@@ -171,7 +171,7 @@ function render(){
 
 			} else if(action === "recover"){
 				if(recoverAction.textContent === "undo"){
-					for(task of tasksArray){
+					for(let task of tasksArray){
 						if(task.id === selectedTaskId){
 							task.flag = "actual";
 							task.status = "actual";
@@ -180,7 +180,7 @@ function render(){
 					}
 
 				} else if(recoverAction.textContent === "recover"){
-					for(task of tasksArray){
+					for(let task of tasksArray){
 						if(task.id === selectedTaskId){
 							if(task.flag === "actual"){
 								task.status = "actual";
@@ -195,7 +195,7 @@ function render(){
 
 			} else if(action === "remove"){
 				if(removeAction.textContent === "remove"){
-					for(task of tasksArray){
+					for(let task of tasksArray){
 						if(task.id === selectedTaskId){
 							task.status = "removed";
 							saveAndRender();
@@ -207,7 +207,7 @@ function render(){
 		
 					if(!controlQuestion) return;
 		
-					for(task of tasksArray){
+					for(let task of tasksArray){
 						if(task.id === selectedTaskId){
 							const getTaskIndex = tasksArray.indexOf(task);
 							tasksArray.splice(getTaskIndex, 1);
@@ -235,7 +235,8 @@ function createDateHolder(parentElement, arrayItem){
 	const dateHolder = document.createElement("span");
 	dateHolder.classList.add("date-holder");
 	dateHolder.textContent = taskDateFormatted;
-	parentElement.insertBefore(dateHolder, parentElement.children[0]);
+	// parentElement.insertBefore(dateHolder, parentElement.children[0]);
+	parentElement.prepend(dateHolder);
 }
 
 function saveList(){
