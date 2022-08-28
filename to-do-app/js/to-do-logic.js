@@ -157,8 +157,8 @@ function render(){
 
 				} else if(editAction.textContent === "save"){
 
-					if(!tasklistValue.value) {
-						editAction.style["background-color"] ="red";
+					if(!tasklistValue.value || tasklistValue.value == " ") {
+						editAction.style["background-color"] ="hsl(0, 79%, 72%)";
 						return
 					} else {
 						editAction.style["background-color"] = null;
@@ -172,16 +172,6 @@ function render(){
 						editAction.textContent = "edit";
 						tasklistValue.setAttribute("readonly", "readonly");
 					}
-
-
-					// for(let task of tasksArray){
-					// 	if(task.id === selectedTaskId){
-					// 		task.name = tasklistValue.value;
-					// 		saveList();
-					// 	}
-					// }
-					// editAction.textContent = "edit";
-					// tasklistValue.setAttribute("readonly", "readonly");
 				}
 
 			} else if(action === "complete"){
