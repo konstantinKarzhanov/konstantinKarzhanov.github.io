@@ -5,6 +5,7 @@ const removedContainer = document.querySelector(".removed-container");
 const newTaskForm = document.querySelector(".new-task-form");
 const inputField = document.querySelector("#new-task");
 const btnAdd = document.querySelector("#btn-add");
+const btnRemoveAll = document.querySelector("#btn-removeAll");
 
 const toDoList = toDoContainer.querySelector(".actual-container__list");
 const completedList = completedContainer.querySelector(".completed-container__list");
@@ -13,7 +14,7 @@ const removedList = removedContainer.querySelector(".removed-container__list");
 const LOCAL_STORAGE_TASKS_LIST_KEY = "tasks.list";
 // such name space "tasks.list" prevents us from overwriting information that is already in localStorage and preventing other websites from overwriting our local storage keys  
 
-const tasksArray = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TASKS_LIST_KEY)) || [];
+let tasksArray = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TASKS_LIST_KEY)) || [];
 
 render();
 
@@ -42,15 +43,15 @@ function createArrayItem(itemName){
 	}
 }
 
-function focusOnPanel(focusedPanel){
-	const controlledByTab = focusedPanel.getAttribute("id");
+function focusOnPanel(focusedPanelName){
+	const focusedPanelId = focusedPanelName.getAttribute("id");
 
 	tabContainer
 	.querySelector("[aria-selected='true']")
 	.setAttribute("aria-selected", false);
 
 	tabContainer
-	.querySelector(`[aria-controls='${controlledByTab}']`)
+	.querySelector(`[aria-controls='${focusedPanelId}']`)
 	.setAttribute("aria-selected", true);
 
 	document
@@ -59,11 +60,15 @@ function focusOnPanel(focusedPanel){
 		panel.setAttribute("data-hidden", true);
 	})
 
-	focusedPanel.removeAttribute("data-hidden");
+	focusedPanelName.removeAttribute("data-hidden");
 }
 
 function render(){
 	clearList(toDoList, completedList, removedList);
+
+	if(!btnRemoveAll.hasAttribute("data-hidden")){
+		btnRemoveAll.setAttribute("data-hidden", true);
+	}
 
 	tasksArray.forEach((task) => {
 		const tasklistItem = document.createElement("li");
@@ -123,6 +128,7 @@ function render(){
 
 		} else if(task.status === "removed"){
 			tasklistItem.classList.add("removed-container__item");
+			tasklistValue.classList.add("line-through");
 
 			removeAction.textContent = "remove completely";
 			recoverAction.removeAttribute("data-hidden");
@@ -150,14 +156,32 @@ function render(){
 					editAction.textContent = "save";
 
 				} else if(editAction.textContent === "save"){
-					for(let task of tasksArray){
-						if(task.id === selectedTaskId){
-							task.name = tasklistValue.value;
-							saveList();
+
+					if(!tasklistValue.value) {
+						editAction.style["background-color"] ="red";
+						return
+					} else {
+						editAction.style["background-color"] = null;
+
+						for(let task of tasksArray){
+							if(task.id === selectedTaskId){
+								task.name = tasklistValue.value;
+								saveList();
+							}
 						}
+						editAction.textContent = "edit";
+						tasklistValue.setAttribute("readonly", "readonly");
 					}
-					editAction.textContent = "edit";
-					tasklistValue.setAttribute("readonly", "readonly");
+
+
+					// for(let task of tasksArray){
+					// 	if(task.id === selectedTaskId){
+					// 		task.name = tasklistValue.value;
+					// 		saveList();
+					// 	}
+					// }
+					// editAction.textContent = "edit";
+					// tasklistValue.setAttribute("readonly", "readonly");
 				}
 
 			} else if(action === "complete"){
@@ -203,7 +227,7 @@ function render(){
 					}
 
 				} else if(removeAction.textContent === "remove completely"){
-					const controlQuestion = confirm("Are you sure you want to delete this permanently?");
+					const controlQuestion = confirm("Are you sure you want to remove this permanently?");
 		
 					if(!controlQuestion) return;
 		
@@ -218,7 +242,20 @@ function render(){
 			}
 		})
 	})
+	
+	if(removedList.children.length > 1){
+		btnRemoveAll.removeAttribute("data-hidden");
+	}
 }
+
+btnRemoveAll.addEventListener("click", () => {
+	const controlQuestion = confirm("Are you sure you want to remove all of this permanently?");
+	if(!controlQuestion) return;			
+	
+	const updatedTasksArray = tasksArray.filter((item) => item.status !== "removed");
+	tasksArray = updatedTasksArray;
+	saveAndRender();
+})
 
 function clearList(...lists){
 	lists.forEach((list) => {

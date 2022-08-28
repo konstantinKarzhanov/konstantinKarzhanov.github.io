@@ -2,6 +2,7 @@
 /* font-families */
 /* fonts-sizes */
 /* gaps */
+/* spaces */
 /*	------------------	*/
 /*	resets				*/
 /*	------------------	*/
@@ -153,19 +154,21 @@ select {
   background-color: transparent;
   border: 1px solid hsl(0deg, 79%, 72%);
   border-radius: 5px;
-  cursor: pointer;
+  -webkit-transform: scale(1);
+          transform: scale(1);
   -webkit-transition: opacity 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
   transition: opacity 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, background-color 150ms ease-in-out;
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
   outline: none;
+  cursor: pointer;
 }
 @media (hover: hover) {
   .btn-control:hover {
     background-color: hsla(257deg, 100%, 99%, 0.5);
+    opacity: 85%;
     -webkit-transform: scale(1.05);
             transform: scale(1.05);
-    opacity: 85%;
   }
 }
 .btn-control:focus {
@@ -174,6 +177,60 @@ select {
 }
 .btn-control:active {
   background-color: hsl(270deg, 78%, 80%);
+}
+
+.remove {
+  margin-bottom: 1rem;
+  padding: 0;
+  position: relative;
+  font-weight: 400;
+  border: 0;
+  opacity: 30%;
+  -webkit-transition: opacity 150ms ease-in-out, color 150ms ease-in-out;
+  transition: opacity 150ms ease-in-out, color 150ms ease-in-out;
+}
+.remove::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 2px;
+  background-color: hsl(0deg, 79%, 72%);
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform 150ms ease-in-out;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+@media (hover: hover) {
+  .remove:hover {
+    color: hsl(0deg, 79%, 72%);
+    background-color: transparent;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+.remove:focus {
+  color: hsl(0deg, 79%, 72%);
+  opacity: 1;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.remove:focus::after {
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+.remove:active {
+  color: hsl(270deg, 78%, 80%);
+  font-weight: 300;
+  background-color: transparent;
 }
 
 .textarea-task {
@@ -220,6 +277,10 @@ select {
 /*	------------------	*/
 .uppercase {
   text-transform: uppercase;
+}
+
+.line-through {
+  text-decoration: line-through;
 }
 
 /*	------------------	*/
@@ -326,6 +387,21 @@ select {
 .new-task-form__input-field {
   border-bottom: 1px solid hsl(0deg, 79%, 72%);
 }
+.new-task-form__input-field::-webkit-input-placeholder {
+  letter-spacing: 1px;
+}
+.new-task-form__input-field::-moz-placeholder {
+  letter-spacing: 1px;
+}
+.new-task-form__input-field:-ms-input-placeholder {
+  letter-spacing: 1px;
+}
+.new-task-form__input-field::-ms-input-placeholder {
+  letter-spacing: 1px;
+}
+.new-task-form__input-field::placeholder {
+  letter-spacing: 1px;
+}
 .new-task-form .add {
   padding: 0;
   display: -webkit-box;
@@ -342,31 +418,13 @@ select {
           order: 1;
   width: 1.5rem;
   height: 1.5rem;
-  background-color: transparent;
-  border: 1px solid hsl(0deg, 79%, 72%);
-  outline: none;
   border-radius: 50%;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: opacity 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
-  transition: opacity 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, background-color 150ms ease-in-out;
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, background-color 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
 }
 @media (hover: hover) {
   .new-task-form .add:hover {
-    background-color: hsla(257deg, 100%, 99%, 0.5);
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
-    opacity: 85%;
   }
-}
-.new-task-form .add:focus {
-  -webkit-box-shadow: 0px 0px 10px 3px hsl(0deg, 79%, 72%);
-          box-shadow: 0px 0px 10px 3px hsl(0deg, 79%, 72%);
-}
-.new-task-form .add:active {
-  background-color: hsl(0deg, 79%, 72%);
 }
 
 .task-container {
