@@ -220,14 +220,10 @@ function render(){
 					const controlQuestion = confirm("Are you sure you want to remove this permanently?");
 		
 					if(!controlQuestion) return;
-		
-					for(let task of tasksArray){
-						if(task.id === selectedTaskId){
-							const getTaskIndex = tasksArray.indexOf(task);
-							tasksArray.splice(getTaskIndex, 1);
-							saveAndRender();
-						}
-					}
+
+					const getTaskIndex = tasksArray.findIndex((task) => task.id === selectedTaskId);
+					tasksArray.splice(getTaskIndex, 1);
+					saveAndRender();
 				}
 			}
 		})
