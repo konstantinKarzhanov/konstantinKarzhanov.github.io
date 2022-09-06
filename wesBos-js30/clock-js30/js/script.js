@@ -12,7 +12,6 @@ function setTime(){
 	secondHandPosition(currentSecond);
 	minuteHandPosition(currentMinute);
 	hourHandPosition(currentHour);
-	console.log(currentSecond);
 }
 
 function secondHandPosition(value){
@@ -42,7 +41,6 @@ function hourHandPosition(value){
 function resetTransition(element){
     element.style.transition = "none";
     setTimeout(() => element.style.transition = null, 500);
-	console.log("transition off");
 }
 
 setInterval(setTime, 1000);

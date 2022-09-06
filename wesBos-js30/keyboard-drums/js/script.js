@@ -51,7 +51,5 @@ buttons.forEach((button) => {
 
 function removeAddedStyling(e){
     if(e.propertyName !== "transform") return;
-    console.log(e);
-
     delete this.dataset.playing;
 }
