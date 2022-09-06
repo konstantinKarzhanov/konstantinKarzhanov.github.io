@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll("button.key");
+const buttons = document.querySelectorAll(".key");
 const buttonsContainer = document.querySelector("#main");
 
 buttonsContainer.addEventListener("click", clickPlay);
@@ -50,5 +50,5 @@ buttons.forEach((button) => {
 })
 
 function removeAddedStyling(){
-    this.removeAttribute("data-playing");
+    delete this.dataset.playing;
 }
