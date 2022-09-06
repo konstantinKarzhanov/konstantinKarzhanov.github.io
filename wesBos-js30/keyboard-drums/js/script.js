@@ -49,6 +49,9 @@ buttons.forEach((button) => {
     button.addEventListener("transitionend", removeAddedStyling);
 })
 
-function removeAddedStyling(){
+function removeAddedStyling(e){
+    if(e.propertyName !== "transform") return;
+    console.log(e);
+
     delete this.dataset.playing;
 }
