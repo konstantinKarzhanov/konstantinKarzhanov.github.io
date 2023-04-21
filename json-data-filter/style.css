@@ -121,6 +121,74 @@ body {
 	padding: var(--pad-x) var(--pad-y);
 }
 
+/* grid */
+.grid {
+	display: grid;
+}
+
+.grid-container {
+	grid-template-columns: var(--grid--col);
+	grid-template-rows: var(--grid--row);
+}
+
+.grid--all-gap {
+	gap: var(--gap);
+}
+
+.grid--r-gap {
+	row-gap: var(--gap);
+}
+
+/* flexbox */
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flex--d-col {
+	flex-direction: column;
+}
+
+.flex--ai-c {
+	align-items: center;
+}
+
+.flex--ai-s {
+	align-items: flex-start;
+}
+
+.flex--ai-e {
+	align-items: flex-end;
+}
+
+.flex--as-c {
+	align-self: center;
+}
+
+.flex--jc-fs {
+	justify-content: flex-start;
+}
+
+.flex--jc-c {
+	justify-content: center;
+}
+
+.flex--jc-ev {
+	justify-content: space-evenly;
+}
+
+.flex--jc-sb {
+	justify-content: space-between;
+}
+
+.flex--gap {
+	gap: var(--gap);
+}
+
+.flex--50 {
+	flex: 1 1 50%;
+}
+
 /* spacing */
 .flow-spacing--xs > * + * {
 	margin-top: var(--flow-space--xs);
@@ -268,24 +336,6 @@ body {
     background-color: var(--c--accent-8);
 }
 
-/* grid */
-.grid {
-	display: grid;
-}
-
-.grid-container {
-	grid-template-columns: var(--grid--col);
-	grid-template-rows: var(--grid--row);
-}
-
-.grid--all-gap {
-	gap: var(--gap);
-}
-
-.grid--r-gap {
-	row-gap: var(--gap);
-}
-
 /* --------------- */
 /* Other classes   */
 /* --------------- */
@@ -322,7 +372,7 @@ body {
     width: 100%;
 }
 
-.age-results {
+.age-result {
 	--radius: 50%;
 	padding: 1.1em;
 	font-size: 1.125rem;

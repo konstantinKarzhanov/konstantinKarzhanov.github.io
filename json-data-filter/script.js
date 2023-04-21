@@ -28,12 +28,21 @@ const sectionResults = document.querySelector("#results");
 // Create an ordered list element to display filtered data
 const listResults = document.createElement("ol");
 listResults.setAttribute("id", "list-results");
-listResults.setAttribute("class", "list-results");
+listResults.className = "list-results";
+
+// Create a prefix element
+const agePrefix = document.createElement("span");
+agePrefix.innerHTML = "up to";
 
 // Create an element to display the current filter for an age
 const ageResults = document.createElement("span");
-ageResults.setAttribute("id", "age-results");
-ageResults.setAttribute("class", "age-results");
+ageResults.className = "age-result";
+
+// Create an element as a container for age results
+const ageBox = document.createElement("div");
+ageBox.className = "flex flex--ai-c flex--jc-fs flex--gap";
+ageBox.appendChild(agePrefix);
+ageBox.appendChild(ageResults);
 
 // Initialize variables for filter ranges and checkbox selections
 // The selected age range
@@ -306,7 +315,7 @@ fetch(file)
     // Create a range input with a default value of the highest age
     filterAges.innerHTML += `<label for="ages-ctrl"><input id="ages-ctrl" type="range" name="ages-ctrl" min="${uniqDataAgesSorted[0]}" max="${uniqDataAgesSorted[(uniqDataAgesSorted.length - 1)]}" step="1" value="${uniqDataAgesSorted[(uniqDataAgesSorted.length - 1)]}"></label>`;
     // Append an element showing the current filter for an age
-    filterAges.appendChild(ageResults);
+    filterAges.appendChild(ageBox);
     // Create a checkbox input for each array item
     uniqDataStatusesSorted.forEach((item, index) => {
         filterStatuses.innerHTML += `<label for="status-${index + 1}"><input id="status-${index + 1}" type="checkbox" name="status-${index + 1}" value="${item}">${item[0].toUpperCase().concat(item.slice(1))}</label>`;
