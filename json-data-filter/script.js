@@ -9,9 +9,9 @@
 
 "use strict"
 
-// -------------------------
+// --------------------------
 // Assign required constants
-// -------------------------
+// --------------------------
 
 // The file path to the JSON data file
 const file = "./data.json";
@@ -134,6 +134,37 @@ function removeFromChkboxAcc(id, value){
 }
 
 
+function addSelectedData(event){
+// The function is called when a user selects a checkbox or changes the "Ages" range
+    // Find the closest "input" element that was clicked on
+    let targetElement = event.target.closest("input");
+
+    // If no "input" element was found, return without doing anything
+    if(!targetElement) return;
+    
+    // Get the parent "label" and "form" elements of the clicked "input" element
+    let parentLabel = targetElement.parentNode;
+    let parentForm = parentLabel.parentNode;
+
+    // If the "Ages" range was clicked, update the "rangeAge" variable with the new value
+    if(targetElement.id == "ages-ctrl"){
+        rangeAge = targetElement.value;
+    }
+
+    if(targetElement.checked == true){
+        // If the checkbox was checked, add the value to the corresponding array in the checkbox accumulator
+        addToChkboxAcc(parentForm.id, targetElement.value)
+    } else if(targetElement.checked == false){
+        // If the checkbox was unchecked, remove the value from the corresponding array in the checkbox accumulator
+        removeFromChkboxAcc(parentForm.id, targetElement.value)
+    }
+
+    // Uncomment the following lines to log all selected values to the console for debugging purposes
+    // chkboxAllAcc = [...chkboxGendersAcc, ...chkboxStatusesAcc, ...chkboxInterestsAcc, rangeAge];
+    // console.log(chkboxAllAcc);
+}
+
+
 function showSelectedData(){
 // The function shows the selected data based on checked filters (checkboxes)
     // If the section "Results" is empty or doesn't contain the "listResults" list tag add tag to the section
@@ -212,6 +243,9 @@ function showSelectedData(){
     })
 }
 
+// ------------------------------------------
+// Generate HTML elements based on JSON data
+// ------------------------------------------
 
 // Fetch a JSON file and process the data
 fetch(file)
@@ -276,36 +310,6 @@ fetch(file)
     });
 });
 
-
-function addSelectedData(event){
-// The function is called when a user selects a checkbox or changes the "Ages" range
-    // Find the closest "input" element that was clicked on
-    let targetElement = event.target.closest("input");
-
-    // If no "input" element was found, return without doing anything
-    if(!targetElement) return;
-    
-    // Get the parent "label" and "form" elements of the clicked "input" element
-    let parentLabel = targetElement.parentNode;
-    let parentForm = parentLabel.parentNode;
-
-    // If the "Ages" range was clicked, update the "rangeAge" variable with the new value
-    if(targetElement.id == "ages-ctrl"){
-        rangeAge = targetElement.value;
-    }
-
-    if(targetElement.checked == true){
-        // If the checkbox was checked, add the value to the corresponding array in the checkbox accumulator
-        addToChkboxAcc(parentForm.id, targetElement.value)
-    } else if(targetElement.checked == false){
-        // If the checkbox was unchecked, remove the value from the corresponding array in the checkbox accumulator
-        removeFromChkboxAcc(parentForm.id, targetElement.value)
-    }
-
-    // Uncomment the following lines to log all selected values to the console for debugging purposes
-    // chkboxAllAcc = [...chkboxGendersAcc, ...chkboxStatusesAcc, ...chkboxInterestsAcc, rangeAge];
-    // console.log(chkboxAllAcc);
-}
 
 // Add a click Event Listener to the "filters" element ("Event Delegation") to detect when child checkboxes or the "Ages" range is clicked
 filters.addEventListener("click", addSelectedData);
