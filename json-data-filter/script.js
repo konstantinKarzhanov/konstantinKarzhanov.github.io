@@ -30,6 +30,11 @@ const listResults = document.createElement("ol");
 listResults.setAttribute("id", "list-results");
 listResults.setAttribute("class", "list-results");
 
+// Create an element to display the current filter for an age
+const ageResults = document.createElement("span");
+ageResults.setAttribute("id", "age-results");
+ageResults.setAttribute("class", "age-results");
+
 // Initialize variables for filter ranges and checkbox selections
 // The selected age range
 let rangeAge;
@@ -149,6 +154,7 @@ function addSelectedData(event){
     // If the "Ages" range was clicked, update the "rangeAge" variable with the new value
     if(targetElement.id == "ages-ctrl"){
         rangeAge = targetElement.value;
+        ageResults.innerHTML = rangeAge;
     }
 
     if(targetElement.checked == true){
@@ -286,6 +292,7 @@ fetch(file)
     let uniqDataAgesSorted = [...uniqDataAllAcc.ages].sort((a, b) => a - b);
     // Assign range value to the highest age
     rangeAge = uniqDataAgesSorted[(uniqDataAgesSorted.length - 1)];
+    ageResults.innerHTML = rangeAge;
 
     // Create copy of the "Statuses" array using spread operator and sort it alphabetically
     let uniqDataStatusesSorted = [...uniqDataAllAcc.statuses].sort();
@@ -298,7 +305,8 @@ fetch(file)
     });
     // Create a range input with a default value of the highest age
     filterAges.innerHTML += `<label for="ages-ctrl"><input id="ages-ctrl" type="range" name="ages-ctrl" min="${uniqDataAgesSorted[0]}" max="${uniqDataAgesSorted[(uniqDataAgesSorted.length - 1)]}" step="1" value="${uniqDataAgesSorted[(uniqDataAgesSorted.length - 1)]}"></label>`;
-    
+    // Append an element showing the current filter for an age
+    filterAges.appendChild(ageResults);
     // Create a checkbox input for each array item
     uniqDataStatusesSorted.forEach((item, index) => {
         filterStatuses.innerHTML += `<label for="status-${index + 1}"><input id="status-${index + 1}" type="checkbox" name="status-${index + 1}" value="${item}">${item[0].toUpperCase().concat(item.slice(1))}</label>`;
