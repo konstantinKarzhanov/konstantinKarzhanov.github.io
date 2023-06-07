@@ -12,6 +12,7 @@
     <ul>
       <li>To Do List: https://konstantinkarzhanov.github.io/to-do-app/</li>
       <li>JSON Data Filter: https://konstantinkarzhanov.github.io/json-data-filter/</li>
+      <li>JSON Async Tabs: https://konstantinkarzhanov.github.io/json-async-tabs/</li>
     </ul>
   </li>
 </ul>
