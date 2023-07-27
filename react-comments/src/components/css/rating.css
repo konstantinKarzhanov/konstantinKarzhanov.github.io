@@ -1,0 +1,23 @@
+.rating-container {
+  --size: 2em;
+  --pad: 1em;
+}
+
+.rating-container > label {
+  position: relative;
+}
+
+.rating-container svg {
+  padding: var(--pad);
+  width: var(--size);
+  height: var(--size);
+}
+
+.rating-container [data-selected] > svg {
+  color: orange;
+}
+
+.size--xs {
+  --size: 1em;
+  --pad: 0.5em;
+}
