@@ -14,7 +14,12 @@ import FeedbackItem from "./FeedbackItem";
 //   };
 // };
 
-const FeedbackContainer = ({ feedbackValue, itemID, itemName }) => {
+const FeedbackContainer = ({
+  feedbackValue,
+  itemID,
+  itemName,
+  autoFocusValue,
+}) => {
   // const { text, setText } = useContext(Context);
 
   // let saveText = (text) => setText(text);
@@ -46,6 +51,7 @@ const FeedbackContainer = ({ feedbackValue, itemID, itemName }) => {
         id={itemID}
         name={itemName}
         value={feedbackValue}
+        autoFocus={autoFocusValue}
       />
     </div>
   );

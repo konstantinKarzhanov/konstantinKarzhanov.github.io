@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/feedback.css";
 
-const FeedbackItem = ({ onChange, id, name, value }) => {
+const FeedbackItem = ({ onChange, id, name, value, autoFocus }) => {
   return (
     <textarea
       onChange={onChange}
@@ -10,6 +10,7 @@ const FeedbackItem = ({ onChange, id, name, value }) => {
       name={name}
       defaultValue={value}
       placeholder="Add your feedback here"
+      autoFocus={autoFocus}
     ></textarea>
   );
 };

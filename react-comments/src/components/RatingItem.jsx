@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 
 const RatingItem = ({ onChange, dataAttr, id, name, value, checked }) => {
   return (
-    <label htmlFor={id} {...(dataAttr ? { "data-selected": "" } : {})}>
+    <label htmlFor={id} {...(dataAttr && { "data-selected": "" })}>
       <input
         // onChange={onChange}
         id={id}

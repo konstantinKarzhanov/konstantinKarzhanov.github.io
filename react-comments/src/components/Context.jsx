@@ -27,6 +27,7 @@ const ContextProvider = ({ children }) => {
   });
   const [text, setText] = useState(() => "");
   const [feedbackObj, setFeedbackObj] = useState(() => ({}));
+  const [isAutoFocus, setAutoFocus] = useState(() => true);
   const [isSubmitted, setIsSubmitted] = useState(() => false);
 
   useEffect(() => {
@@ -52,6 +53,8 @@ const ContextProvider = ({ children }) => {
         setText,
         feedbackObj,
         setFeedbackObj,
+        isAutoFocus,
+        setAutoFocus,
         isSubmitted,
         setIsSubmitted,
       }}

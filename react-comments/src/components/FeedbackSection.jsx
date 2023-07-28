@@ -11,6 +11,7 @@ const FeedbackSection = () => {
     feedbackMainArea,
     feedbackArr,
     setFeedbackObj,
+    isAutoFocus,
     setIsSubmitted,
   } = useContext(Context);
 
@@ -62,6 +63,7 @@ const FeedbackSection = () => {
         <FeedbackContainer
           itemID={feedbackMainArea}
           itemName={feedbackMainArea}
+          autoFocusValue={isAutoFocus}
         />
         <Button type="submit" children="Add Feedback" />
       </form>
