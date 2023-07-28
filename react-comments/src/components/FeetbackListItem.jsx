@@ -4,7 +4,8 @@ import RatingContainer from "./RatingContainer";
 import FeedbackContainer from "./FeedbackContainer";
 
 const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
-  const { maxRating } = useContext(Context);
+  const { maxRating, ratingSubmittedContainer, feedbackSubmittedArea } =
+    useContext(Context);
   const [isDisabled, setIsDisabled] = useState(() => true);
 
   return (
@@ -14,14 +15,14 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
           classHandle="rating-container size--xs"
           ratingHandle={ratingHandle}
           maxRatingHandle={maxRating}
-          itemIDHandle={`feedback-rating-${idHandle}_`}
-          itemNameHandle={`feedback-rating-${idHandle}`}
+          itemIDHandle={`${ratingSubmittedContainer}-${idHandle}_`}
+          itemNameHandle={`${ratingSubmittedContainer}-${idHandle}`}
           disabledHandle={isDisabled}
         />
         <FeedbackContainer
           feedbackHandle={feedbackHandle}
-          itemIDHandle={`feedback-text-${idHandle}`}
-          itemNameHandle={`feedback-text-${idHandle}`}
+          itemIDHandle={`${feedbackSubmittedArea}-${idHandle}`}
+          itemNameHandle={`${feedbackSubmittedArea}-${idHandle}`}
           disabledHandle={isDisabled}
         />
       </form>

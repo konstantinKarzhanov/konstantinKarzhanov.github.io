@@ -6,6 +6,8 @@ const ContextProvider = ({ children }) => {
   const maxRating = 10;
   const ratingMainContainer = "rating-container--main";
   const feedbackMainArea = "feedback-area--main";
+  const ratingSubmittedContainer = "feedback-rating";
+  const feedbackSubmittedArea = "feedback-text";
   const [feedbackArr, setFeedbacksArr] = useState(() => {
     return [
       {
@@ -47,6 +49,8 @@ const ContextProvider = ({ children }) => {
         maxRating,
         ratingMainContainer,
         feedbackMainArea,
+        ratingSubmittedContainer,
+        feedbackSubmittedArea,
         feedbackArr,
         setFeedbacksArr,
         text,

@@ -57,7 +57,7 @@ const FeedbackSection = () => {
         <RatingContainer
           classHandle="rating-container"
           maxRatingHandle={maxRating}
-          itemIDHandle={`${ratingMainContainer}-`}
+          itemIDHandle={`${ratingMainContainer}_`}
           itemNameHandle={ratingMainContainer}
         />
         <FeedbackContainer
