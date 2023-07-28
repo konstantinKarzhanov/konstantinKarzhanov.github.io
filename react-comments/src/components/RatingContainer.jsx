@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import Context from "./Context";
 import RatingItem from "./RatingItem";
 import "./css/rating.css";
 
@@ -9,58 +10,66 @@ const RatingContainer = ({
   itemID,
   itemName,
 }) => {
-  // we can check if ratingValue > 0 and stick with itemName -> apply selectedArr, checked etc.
-
+  const { isSubmitted, setIsSubmitted } = useContext(Context);
   const [rating, setRating] = useState(() => ratingValue);
-  const [selectedArr, setSelectedArr] = useState(() => []);
-
-  // ---------------------
-  // for testing purposes
-  // ---------------------
-  // useEffect(() => {
-  //   console.log(rating);
-  //   console.log(selectedArr);
-  // }, [selectedArr]);
 
   useEffect(() => {
-    selectedArr.forEach((item) => (item.dataset.selected = ""));
-    return () => selectedArr.forEach((item) => delete item.dataset.selected);
-  }, [selectedArr]);
+    if (isSubmitted) {
+      setRating(ratingValue);
+      setIsSubmitted(!isSubmitted);
+    }
+  }, [isSubmitted]);
 
+  // // first variant (checked)
+  // const handleOnChange = (event) => {
+  //   setRating(+event.target.value);
+  // };
+  // const handleDoubleClick = () => {
+  //   setRating(0);
+  // };
+
+  // second variant (defaultChecked)
   const handleClick = (event) => {
     const target = event.target.closest("input");
     if (!target) return;
 
     const targetValue = +target.value;
-    const labelParent = target.parentNode;
-    const parentContainer = labelParent.parentNode;
+
     setRating(targetValue);
-    setSelectedArr(() =>
-      Array.from(parentContainer.children).slice(0, targetValue)
-    );
   };
 
-  const handleDoubleClick = () => {
-    if (!selectedArr.length) return;
+  const handleDoubleClick = (event) => {
+    const target = event.currentTarget;
+    const checkedObj = [...target.children].find(
+      ({ children: [{ checked }] }) => checked
+    );
 
-    selectedArr[selectedArr.length - 1].children[0].checked = false;
-    setSelectedArr([]);
+    if (!checkedObj) return;
+    checkedObj.children[0].checked = false;
+
     setRating(0);
   };
 
   return (
     <>
       <div
+        // // first variant (checked)
+        // onDoubleClick={handleDoubleClick}
+
+        // second variant (checked)
         onClick={(event) => handleClick(event)}
-        onDoubleClick={handleDoubleClick}
+        onDoubleClick={(event) => handleDoubleClick(event)}
         className={classValue}
       >
         {Array.from({ length: maxRating }, (_, index) => (
           <RatingItem
             key={index}
+            // onChange={handleOnChange}
+            dataAttr={index + 1 <= rating}
             id={`${itemID}${index + 1}`}
             name={itemName}
             value={index + 1}
+            checked={index + 1 === rating}
           />
         ))}
       </div>
@@ -73,3 +82,69 @@ RatingContainer.defaultProps = {
 };
 
 export default RatingContainer;
+
+// difference between first and second variants:
+//    1. After first click (checked):
+//        - checked: true
+//        - defaultChecked: false
+//        - attr checked: false
+//
+//    2. After first click (defaultChecked):
+//        - checked: true
+//        - defaultChecked: true
+//        - attr checked: true
+//
+//    1. After Changes (checked):
+//        default item:
+//          - checked: false - true
+//          - defaultChecked: false - false
+//          - attr checked: false - false
+//
+//        changed item:
+//          - checked: true
+//          - defaultChecked: false
+//          - attr checked: false
+//
+//    2. After Changes (defaultChecked):
+//        default item:
+//          - checked: false - true
+//          - defaultChecked: false - true
+//          - attr checked: false - true
+//
+//        changed item:
+//          - checked: true
+//          - defaultChecked: true
+//          - attr checked: true
+//
+//    1. After Submit (checked):
+//        - checked: true
+//        - defaultChecked: true
+//        - attr checked: true
+//
+//    2. After Submit (defaultChecked):
+//        - checked: true
+//        - defaultChecked: true
+//        - attr checked: true
+//
+//    1. After Changes Submit (checked):
+//        default item:
+//          - checked: true -> false
+//          - defaultChecked: true -> true
+//          - attr checked: true -> true
+//
+//        changed item:
+//          - checked: true
+//          - defaultChecked: false
+//          - attr checked: false
+//
+//    2. After Changes Submit (defaultChecked):
+//        default item:
+//          - checked: true -> false
+//          - defaultChecked: true -> false
+//          - attr checked: true -> false
+//
+//        changed item:
+//          - checked: true
+//          - defaultChecked: true
+//          - attr checked: true
+//

@@ -11,6 +11,7 @@ const FeedbackSection = () => {
     feedbackMainArea,
     feedbackArr,
     setFeedbackObj,
+    setIsSubmitted,
   } = useContext(Context);
 
   const validateFeedback = (rating, text) => {
@@ -25,11 +26,7 @@ const FeedbackSection = () => {
   };
 
   const resetFeedbackSection = (ratingObjArr, textObj) => {
-    ratingObjArr.forEach((item) => {
-      item.checked = false;
-      delete item.parentNode.dataset.selected;
-    });
-
+    ratingObjArr.find(({ checked }) => checked).checked = false;
     textObj.value = "";
   };
 
@@ -47,6 +44,7 @@ const FeedbackSection = () => {
       console.log("passed validation, ready to submit");
       createFeedback(feedbackArr.length + 1, rating, text);
       resetFeedbackSection(ratingObjArr, textObj);
+      setIsSubmitted(true);
     } else {
       console.log("didn't pass validation");
     }

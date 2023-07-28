@@ -8,25 +8,26 @@ const ContextProvider = ({ children }) => {
   const feedbackMainArea = "feedback-area--main";
   const [feedbackArr, setFeedbacksArr] = useState(() => {
     return [
-      // {
-      //   id: 1,
-      //   rating: 8,
-      //   feedback: "first feedback",
-      // },
-      // {
-      //   id: 2,
-      //   rating: 4,
-      //   feedback: "second feedback",
-      // },
-      // {
-      //   id: 3,
-      //   rating: 5,
-      //   feedback: "third feedback",
-      // },
+      {
+        id: 1,
+        rating: 8,
+        feedback: "first feedback",
+      },
+      {
+        id: 2,
+        rating: 4,
+        feedback: "second feedback",
+      },
+      {
+        id: 3,
+        rating: 5,
+        feedback: "third feedback",
+      },
     ];
   });
   const [text, setText] = useState(() => "");
   const [feedbackObj, setFeedbackObj] = useState(() => ({}));
+  const [isSubmitted, setIsSubmitted] = useState(() => false);
 
   useEffect(() => {
     JSON.stringify(feedbackObj) !== "{}" &&
@@ -51,6 +52,8 @@ const ContextProvider = ({ children }) => {
         setText,
         feedbackObj,
         setFeedbackObj,
+        isSubmitted,
+        setIsSubmitted,
       }}
     >
       {children}
