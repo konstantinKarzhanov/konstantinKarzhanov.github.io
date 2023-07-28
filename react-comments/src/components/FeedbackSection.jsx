@@ -28,6 +28,7 @@ const FeedbackSection = () => {
   const resetFeedbackSection = (ratingObjArr, textObj) => {
     ratingObjArr.find(({ checked }) => checked).checked = false;
     textObj.value = "";
+    setIsSubmitted(true);
   };
 
   const handleOnSubmit = (event) => {
@@ -44,7 +45,6 @@ const FeedbackSection = () => {
       console.log("passed validation, ready to submit");
       createFeedback(feedbackArr.length + 1, rating, text);
       resetFeedbackSection(ratingObjArr, textObj);
-      setIsSubmitted(true);
     } else {
       console.log("didn't pass validation");
     }

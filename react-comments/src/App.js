@@ -8,12 +8,17 @@ const App = () => {
     // delete, edit, add instead of create?
     // btnDisabled
     // textarea doesn't change its size after submitting
-
-    <ContextProvider>
-      <h1>Rate us</h1>
-      <FeedbackSection />
-      <FeedbackListSection />
-    </ContextProvider>
+    <>
+      <header></header>
+      <main>
+        <ContextProvider>
+          <h1>Rate us</h1>
+          <FeedbackSection />
+          <FeedbackListSection />
+        </ContextProvider>
+      </main>
+      <footer></footer>
+    </>
   );
 };
 

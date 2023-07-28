@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Context from "./Context";
 import RatingItem from "./RatingItem";
 import "./css/rating.css";
