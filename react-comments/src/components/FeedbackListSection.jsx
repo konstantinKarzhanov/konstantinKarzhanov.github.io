@@ -1,29 +1,21 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import Context from "./Context";
-import RatingContainer from "./RatingContainer";
-import FeedbackContainer from "./FeedbackContainer";
+import FeedbackListItem from "./FeetbackListItem";
 
 const FeedbackListSection = () => {
-  const { maxRating, feedbackArr } = useContext(Context);
-
+  const { feedbackArr } = useContext(Context);
   return (
     <section>
-      {feedbackArr.map(({ id, rating, feedback }, index) => (
-        <form key={index}>
-          <RatingContainer
-            classValue="rating-container size--xs"
-            ratingValue={rating}
-            maxRating={maxRating}
-            itemID={`feedback-rating-${id}_`}
-            itemName={`feedback-rating-${id}`}
+      <ul>
+        {feedbackArr.map(({ id, rating, feedback }, index) => (
+          <FeedbackListItem
+            key={index}
+            idHandle={id}
+            ratingHandle={rating}
+            feedbackHandle={feedback}
           />
-          <FeedbackContainer
-            feedbackValue={feedback}
-            itemID={`feedback-text-${id}`}
-            itemName={`feedback-text-${id}`}
-          />
-        </form>
-      ))}
+        ))}
+      </ul>
     </section>
   );
 };

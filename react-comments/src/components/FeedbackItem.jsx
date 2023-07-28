@@ -1,16 +1,24 @@
 import React from "react";
 import "./css/feedback.css";
 
-const FeedbackItem = ({ onChange, id, name, value, autoFocus }) => {
+const FeedbackItem = ({
+  handleOnChange,
+  itemIDHandle,
+  itemNameHandle,
+  feedbackHandle,
+  autoFocusHandle,
+  disabledHandle,
+}) => {
   return (
     <textarea
-      onChange={onChange}
-      id={id}
+      onChange={handleOnChange}
+      id={itemIDHandle}
       className="feedback"
-      name={name}
-      defaultValue={value}
+      name={itemNameHandle}
+      defaultValue={feedbackHandle}
       placeholder="Add your feedback here"
-      autoFocus={autoFocus}
+      autoFocus={autoFocusHandle}
+      disabled={disabledHandle}
     ></textarea>
   );
 };

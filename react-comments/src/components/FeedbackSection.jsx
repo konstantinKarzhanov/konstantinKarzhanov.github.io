@@ -55,15 +55,15 @@ const FeedbackSection = () => {
     <section>
       <form onSubmit={(event) => handleOnSubmit(event)}>
         <RatingContainer
-          classValue="rating-container"
-          maxRating={maxRating}
-          itemID={`${ratingMainContainer}-`}
-          itemName={ratingMainContainer}
+          classHandle="rating-container"
+          maxRatingHandle={maxRating}
+          itemIDHandle={`${ratingMainContainer}-`}
+          itemNameHandle={ratingMainContainer}
         />
         <FeedbackContainer
-          itemID={feedbackMainArea}
-          itemName={feedbackMainArea}
-          autoFocusValue={isAutoFocus}
+          itemIDHandle={feedbackMainArea}
+          itemNameHandle={feedbackMainArea}
+          autoFocusHandle={isAutoFocus}
         />
         <Button type="submit" children="Add Feedback" />
       </form>

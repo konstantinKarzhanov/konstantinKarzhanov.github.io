@@ -1,18 +1,30 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 
-const RatingItem = ({ onChange, dataAttr, id, name, value, checked }) => {
+const RatingItem = ({
+  handleOnChange,
+  dataAttrHandle,
+  itemIDHandle,
+  itemNameHandle,
+  valueHandle,
+  checkedHandle,
+  disabledHandle,
+}) => {
   return (
-    <label htmlFor={id} {...(dataAttr && { "data-selected": "" })}>
+    <label
+      htmlFor={itemIDHandle}
+      {...(dataAttrHandle && { "data-selected": "" })}
+    >
       <input
-        // onChange={onChange}
-        id={id}
+        // onChange={handleOnChange}
+        id={itemIDHandle}
         // className="sr-only"
-        name={name}
-        value={value}
+        name={itemNameHandle}
+        value={valueHandle}
         type="radio"
-        // checked={checked}
-        defaultChecked={checked}
+        // checked={checkedHandle}
+        defaultChecked={checkedHandle}
+        disabled={disabledHandle}
       />
       <FaStar />
     </label>

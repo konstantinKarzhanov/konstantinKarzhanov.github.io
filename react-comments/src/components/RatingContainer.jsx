@@ -4,18 +4,19 @@ import RatingItem from "./RatingItem";
 import "./css/rating.css";
 
 const RatingContainer = ({
-  classValue,
-  ratingValue,
-  maxRating,
-  itemID,
-  itemName,
+  classHandle,
+  ratingHandle,
+  maxRatingHandle,
+  itemIDHandle,
+  itemNameHandle,
+  disabledHandle,
 }) => {
   const { isSubmitted, setIsSubmitted } = useContext(Context);
-  const [rating, setRating] = useState(() => ratingValue);
+  const [rating, setRating] = useState(() => ratingHandle);
 
   useEffect(() => {
     if (isSubmitted) {
-      setRating(ratingValue);
+      setRating(ratingHandle);
       setIsSubmitted(!isSubmitted);
     }
   }, [isSubmitted]);
@@ -58,18 +59,19 @@ const RatingContainer = ({
 
         // second variant (checked)
         onClick={(event) => handleClick(event)}
-        onDoubleClick={(event) => handleDoubleClick(event)}
-        className={classValue}
+        onDoubleClick={(event) => !disabledHandle && handleDoubleClick(event)}
+        className={classHandle}
       >
-        {Array.from({ length: maxRating }, (_, index) => (
+        {Array.from({ length: maxRatingHandle }, (_, index) => (
           <RatingItem
             key={index}
-            // onChange={handleOnChange}
-            dataAttr={index + 1 <= rating}
-            id={`${itemID}${index + 1}`}
-            name={itemName}
-            value={index + 1}
-            checked={index + 1 === rating}
+            // handleOnChange={handleOnChange}
+            dataAttrHandle={index + 1 <= rating}
+            itemIDHandle={`${itemIDHandle}${index + 1}`}
+            itemNameHandle={itemNameHandle}
+            valueHandle={index + 1}
+            checkedHandle={index + 1 === rating}
+            disabledHandle={disabledHandle}
           />
         ))}
       </div>
@@ -78,7 +80,8 @@ const RatingContainer = ({
 };
 
 RatingContainer.defaultProps = {
-  ratingValue: 0,
+  ratingHandle: 0,
+  disabledHandle: false,
 };
 
 export default RatingContainer;

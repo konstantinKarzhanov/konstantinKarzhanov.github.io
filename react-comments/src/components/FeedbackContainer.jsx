@@ -15,10 +15,11 @@ import FeedbackItem from "./FeedbackItem";
 // };
 
 const FeedbackContainer = ({
-  feedbackValue,
-  itemID,
-  itemName,
-  autoFocusValue,
+  feedbackHandle,
+  itemIDHandle,
+  itemNameHandle,
+  autoFocusHandle,
+  disabledHandle,
 }) => {
   // const { text, setText } = useContext(Context);
 
@@ -47,18 +48,21 @@ const FeedbackContainer = ({
   return (
     <div>
       <FeedbackItem
-        onChange={handleOnChange}
-        id={itemID}
-        name={itemName}
-        value={feedbackValue}
-        autoFocus={autoFocusValue}
+        handleOnChange={handleOnChange}
+        itemIDHandle={itemIDHandle}
+        itemNameHandle={itemNameHandle}
+        feedbackHandle={feedbackHandle}
+        autoFocusHandle={autoFocusHandle}
+        disabledHandle={disabledHandle}
       />
     </div>
   );
 };
 
 FeedbackContainer.defaultProps = {
-  feedbackValue: "",
+  feedbackHandle: "",
+  disabledHandle: false,
+  autoFocusHandle: false,
 };
 
 export default FeedbackContainer;
