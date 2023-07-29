@@ -7,48 +7,32 @@ import Button from "./Button";
 const FeedbackSection = () => {
   const {
     maxRating,
+    minFeedbackLength,
     feedbackFormMain,
     ratingMainContainer,
     feedbackMainArea,
     feedbackArr,
-    setFeedbackObj,
     isAutoFocus,
-    setIsSubmitted,
+    validateFeedback,
+    createFeedback,
+    resetFeedbackSection,
   } = useContext(Context);
-
-  // put these functions in the Context Component
-  const validateFeedback = (rating, feedback) => {
-    const minTextLength = 10;
-    feedback = feedback.trim();
-    // add editional messages for better UX
-    if (rating && feedback.length > minTextLength) return true;
-  };
-
-  const createFeedback = ({ id, rating, feedback }) => {
-    setFeedbackObj((prev) => ({ ...prev, id, rating, feedback }));
-  };
-
-  const resetFeedbackSection = (ratingObjArr, textObj) => {
-    ratingObjArr.find(({ checked }) => checked).checked = false;
-    textObj.value = "";
-    setIsSubmitted(true);
-  };
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
     const target = event.target;
-    const ratingObjArr = [...target[ratingMainContainer]];
-    const checkedObj = ratingObjArr.find(({ checked }) => checked);
-    const textObj = target[feedbackMainArea];
+    const ratingContainerArr = [...target[ratingMainContainer]];
+    const checkedObj = ratingContainerArr.find(({ checked }) => checked);
+    const textarea = target[feedbackMainArea];
     const id = feedbackArr.length + 1;
     const rating = checkedObj ? +checkedObj.value : 0;
-    const feedback = textObj.value;
+    const feedback = textarea.value;
 
-    const flag = validateFeedback(rating, feedback);
+    const flag = validateFeedback(rating, feedback, minFeedbackLength);
     if (flag) {
       console.log("passed validation, ready to submit");
       createFeedback({ id, rating, feedback });
-      resetFeedbackSection(ratingObjArr, textObj);
+      resetFeedbackSection(ratingContainerArr, textarea);
     } else {
       console.log("didn't pass validation");
     }

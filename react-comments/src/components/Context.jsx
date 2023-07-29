@@ -4,6 +4,7 @@ const Context = React.createContext();
 
 const ContextProvider = ({ children }) => {
   const maxRating = 10;
+  const minFeedbackLength = 10;
   const feedbackFormMain = "feedback-form--main";
   const ratingMainContainer = "rating-container--main";
   const feedbackMainArea = "feedback-area--main";
@@ -30,28 +31,33 @@ const ContextProvider = ({ children }) => {
     ];
   });
   // const [text, setText] = useState(() => "");
-  const [feedbackObj, setFeedbackObj] = useState(() => ({}));
   const [isAutoFocus, setAutoFocus] = useState(() => true);
   const [isSubmitted, setIsSubmitted] = useState(() => false);
 
-  const updateFeedback = ({ id, rating, feedback }) => {
+  const validateFeedback = (rating, feedback, minFeedbackLength) => {
+    feedback = feedback.trim();
+    // add editional messages for better UX
+    if (rating && feedback.length > minFeedbackLength) return true;
+  };
+
+  const createFeedback = (newFeedback) =>
+    setFeedbackArr((prev) => [newFeedback, ...prev]);
+
+  const resetFeedbackSection = (ratingContainerArr, textarea) => {
+    ratingContainerArr.find(({ checked }) => checked).checked = false;
+    textarea.value = "";
+    setIsSubmitted(true);
+  };
+
+  const updateFeedback = ({ id, rating, feedback }) =>
     setFeedbackArr((prev) =>
       prev.map((item) =>
         item.id === id ? { ...item, rating, feedback } : item
       )
     );
-  };
 
-  const removeFeedback = (id) => {
+  const removeFeedback = (id) =>
     setFeedbackArr((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  useEffect(() => {
-    JSON.stringify(feedbackObj) !== "{}" &&
-      setFeedbackArr((prev) => {
-        return [...prev, feedbackObj];
-      });
-  }, [feedbackObj]);
 
   useEffect(() => {
     feedbackArr.length && console.log(feedbackArr);
@@ -61,6 +67,7 @@ const ContextProvider = ({ children }) => {
     <Context.Provider
       value={{
         maxRating,
+        minFeedbackLength,
         feedbackFormMain,
         ratingMainContainer,
         feedbackMainArea,
@@ -68,15 +75,15 @@ const ContextProvider = ({ children }) => {
         ratingSubmittedContainer,
         feedbackSubmittedArea,
         feedbackArr,
-        // setFeedbackArr,
         // text,
         // setText,
-        // feedbackObj,
-        setFeedbackObj,
         isAutoFocus,
         setAutoFocus,
         isSubmitted,
         setIsSubmitted,
+        validateFeedback,
+        createFeedback,
+        resetFeedbackSection,
         updateFeedback,
         removeFeedback,
       }}

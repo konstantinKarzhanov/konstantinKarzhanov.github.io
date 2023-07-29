@@ -7,9 +7,11 @@ import Button from "./Button";
 const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
   const {
     maxRating,
+    minFeedbackLength,
     feedbackFormSubmitted,
     ratingSubmittedContainer,
     feedbackSubmittedArea,
+    validateFeedback,
     updateFeedback,
     removeFeedback,
   } = useContext(Context);
@@ -24,14 +26,26 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
     const id = +formElement.id[formElement.id.length - 1];
 
     if (target.id === "btn--edit") {
+      // check for undefined
+
       const rating = +[
         ...formElement[`${ratingSubmittedContainer}-${id}`],
       ].find(({ checked }) => checked).value;
       const feedback = formElement[`${feedbackSubmittedArea}-${id}`].value;
 
-      target.textContent = isDisabled ? "Save" : "Edit";
-      setIsDisabled(!isDisabled);
-      !isDisabled && updateFeedback({ id, rating, feedback });
+      console.log(feedback);
+
+      if (target.textContent === "Edit") {
+        setIsDisabled(!isDisabled);
+        target.textContent = "Save";
+      } else if (target.textContent === "Save") {
+        const flag = validateFeedback(rating, feedback, minFeedbackLength);
+        if (flag) {
+          updateFeedback({ id, rating, feedback });
+          setIsDisabled(!isDisabled);
+          target.textContent = "Edit";
+        }
+      }
     } else if (target.id === "btn--remove") {
       removeFeedback(id);
     }
