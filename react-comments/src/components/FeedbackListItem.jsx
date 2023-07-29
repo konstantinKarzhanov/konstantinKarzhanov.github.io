@@ -50,10 +50,7 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
 
     const targetContainer = target.parentElement;
     const formElement = targetContainer.previousElementSibling;
-
-    // this will not work after ID becomes 10..
-    // btnDisabled
-    const id = +formElement.id[formElement.id.length - 1];
+    const id = +formElement.id.split("-").slice(-1)[0];
 
     if (target.id === "btn--edit") {
       processClickBtnEditSave(target, formElement, id);
