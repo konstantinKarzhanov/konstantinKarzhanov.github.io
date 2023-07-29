@@ -15,7 +15,36 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
     updateFeedback,
     removeFeedback,
   } = useContext(Context);
+
   const [isDisabled, setIsDisabled] = useState(() => true);
+
+  // here we can create one more function "takeFormData(form, ratingContainerName, feedbackContainerNAme)"
+  const processClickBtnEditSave = (target, formElement, id) => {
+    const ratingContainerArr = [
+      ...formElement[`${ratingSubmittedContainer}-${id}`],
+    ];
+    const checkedObj = ratingContainerArr.find(({ checked }) => checked);
+    const textarea = formElement[`${feedbackSubmittedArea}-${id}`];
+    const rating = checkedObj ? +checkedObj.value : 0;
+    const feedback = textarea.value;
+
+    if (target.textContent === "Edit") {
+      setIsDisabled(!isDisabled);
+      target.textContent = "Save";
+    } else if (target.textContent === "Save") {
+      const flag = validateFeedback(rating, feedback, minFeedbackLength);
+
+      if (flag) {
+        updateFeedback({ id, rating, feedback });
+        setIsDisabled(!isDisabled);
+        target.textContent = "Edit";
+      }
+    }
+  };
+
+  const processClickBtnRemove = (id) => {
+    removeFeedback(id);
+  };
 
   const handleClick = (event) => {
     const target = event.target.closest("button");
@@ -23,31 +52,14 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
 
     const targetContainer = target.parentElement;
     const formElement = targetContainer.previousElementSibling;
+
+    // this will not work after ID becomes 10..
     const id = +formElement.id[formElement.id.length - 1];
 
     if (target.id === "btn--edit") {
-      // check for undefined
-
-      const rating = +[
-        ...formElement[`${ratingSubmittedContainer}-${id}`],
-      ].find(({ checked }) => checked).value;
-      const feedback = formElement[`${feedbackSubmittedArea}-${id}`].value;
-
-      console.log(feedback);
-
-      if (target.textContent === "Edit") {
-        setIsDisabled(!isDisabled);
-        target.textContent = "Save";
-      } else if (target.textContent === "Save") {
-        const flag = validateFeedback(rating, feedback, minFeedbackLength);
-        if (flag) {
-          updateFeedback({ id, rating, feedback });
-          setIsDisabled(!isDisabled);
-          target.textContent = "Edit";
-        }
-      }
+      processClickBtnEditSave(target, formElement, id);
     } else if (target.id === "btn--remove") {
-      removeFeedback(id);
+      processClickBtnRemove(id);
     }
   };
 

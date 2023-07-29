@@ -18,9 +18,7 @@ const FeedbackSection = () => {
     resetFeedbackSection,
   } = useContext(Context);
 
-  const handleOnSubmit = (event) => {
-    event.preventDefault();
-    const target = event.target;
+  const processSubmit = (target) => {
     const ratingContainerArr = [...target[ratingMainContainer]];
     const checkedObj = ratingContainerArr.find(({ checked }) => checked);
     const textarea = target[feedbackMainArea];
@@ -36,6 +34,11 @@ const FeedbackSection = () => {
     } else {
       console.log("didn't pass validation");
     }
+  };
+
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    processSubmit(event.target);
   };
 
   return (
