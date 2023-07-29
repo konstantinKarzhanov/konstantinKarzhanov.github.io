@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Context from "./Context";
-import FeedbackListItem from "./FeetbackListItem";
+import FeedbackListItem from "./FeedbackListItem";
 
 const FeedbackListSection = () => {
   const { feedbackArr } = useContext(Context);
