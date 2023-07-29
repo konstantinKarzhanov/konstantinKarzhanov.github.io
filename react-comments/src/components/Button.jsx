@@ -1,7 +1,15 @@
 import React from "react";
 
-const Button = ({ type, children }) => {
-  return <button type={type}>{children}</button>;
+const Button = ({ idHandle, typeHandle, children }) => {
+  return (
+    <button id={idHandle} type={typeHandle}>
+      {children}
+    </button>
+  );
+};
+
+Button.defaultProps = {
+  typeHandle: "button",
 };
 
 export default Button;

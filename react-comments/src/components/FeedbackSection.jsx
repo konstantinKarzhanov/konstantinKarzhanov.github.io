@@ -7,6 +7,7 @@ import Button from "./Button";
 const FeedbackSection = () => {
   const {
     maxRating,
+    feedbackFormMain,
     ratingMainContainer,
     feedbackMainArea,
     feedbackArr,
@@ -15,14 +16,15 @@ const FeedbackSection = () => {
     setIsSubmitted,
   } = useContext(Context);
 
-  const validateFeedback = (rating, text) => {
+  // put these functions in the Context Component
+  const validateFeedback = (rating, feedback) => {
     const minTextLength = 10;
-    text = text.trim();
+    feedback = feedback.trim();
     // add editional messages for better UX
-    if (rating && text.length > minTextLength) return true;
+    if (rating && feedback.length > minTextLength) return true;
   };
 
-  const createFeedback = (id, rating, feedback) => {
+  const createFeedback = ({ id, rating, feedback }) => {
     setFeedbackObj((prev) => ({ ...prev, id, rating, feedback }));
   };
 
@@ -38,13 +40,14 @@ const FeedbackSection = () => {
     const ratingObjArr = [...target[ratingMainContainer]];
     const checkedObj = ratingObjArr.find(({ checked }) => checked);
     const textObj = target[feedbackMainArea];
+    const id = feedbackArr.length + 1;
     const rating = checkedObj ? +checkedObj.value : 0;
-    const text = textObj.value;
+    const feedback = textObj.value;
 
-    const flag = validateFeedback(rating, text);
+    const flag = validateFeedback(rating, feedback);
     if (flag) {
       console.log("passed validation, ready to submit");
-      createFeedback(feedbackArr.length + 1, rating, text);
+      createFeedback({ id, rating, feedback });
       resetFeedbackSection(ratingObjArr, textObj);
     } else {
       console.log("didn't pass validation");
@@ -53,7 +56,7 @@ const FeedbackSection = () => {
 
   return (
     <section>
-      <form onSubmit={(event) => handleOnSubmit(event)}>
+      <form id={feedbackFormMain} onSubmit={(event) => handleOnSubmit(event)}>
         <RatingContainer
           classHandle="rating-container"
           maxRatingHandle={maxRating}
@@ -65,7 +68,11 @@ const FeedbackSection = () => {
           itemNameHandle={feedbackMainArea}
           autoFocusHandle={isAutoFocus}
         />
-        <Button type="submit" children="Add Feedback" />
+        <Button
+          idHandle="btn--submit"
+          typeHandle="submit"
+          children="Add Feedback"
+        />
       </form>
     </section>
   );

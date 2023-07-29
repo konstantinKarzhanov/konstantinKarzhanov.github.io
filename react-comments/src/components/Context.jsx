@@ -4,11 +4,13 @@ const Context = React.createContext();
 
 const ContextProvider = ({ children }) => {
   const maxRating = 10;
+  const feedbackFormMain = "feedback-form--main";
   const ratingMainContainer = "rating-container--main";
   const feedbackMainArea = "feedback-area--main";
+  const feedbackFormSubmitted = "feedback-form";
   const ratingSubmittedContainer = "feedback-rating";
   const feedbackSubmittedArea = "feedback-text";
-  const [feedbackArr, setFeedbacksArr] = useState(() => {
+  const [feedbackArr, setFeedbackArr] = useState(() => {
     return [
       {
         id: 1,
@@ -27,14 +29,26 @@ const ContextProvider = ({ children }) => {
       },
     ];
   });
-  const [text, setText] = useState(() => "");
+  // const [text, setText] = useState(() => "");
   const [feedbackObj, setFeedbackObj] = useState(() => ({}));
   const [isAutoFocus, setAutoFocus] = useState(() => true);
   const [isSubmitted, setIsSubmitted] = useState(() => false);
 
+  const updateFeedback = ({ id, rating, feedback }) => {
+    setFeedbackArr((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, rating, feedback } : item
+      )
+    );
+  };
+
+  const removeFeedback = () => {
+    console.log("removed");
+  };
+
   useEffect(() => {
     JSON.stringify(feedbackObj) !== "{}" &&
-      setFeedbacksArr((prev) => {
+      setFeedbackArr((prev) => {
         return [...prev, feedbackObj];
       });
   }, [feedbackObj]);
@@ -47,20 +61,24 @@ const ContextProvider = ({ children }) => {
     <Context.Provider
       value={{
         maxRating,
+        feedbackFormMain,
         ratingMainContainer,
         feedbackMainArea,
+        feedbackFormSubmitted,
         ratingSubmittedContainer,
         feedbackSubmittedArea,
         feedbackArr,
-        setFeedbacksArr,
-        text,
-        setText,
-        feedbackObj,
+        // setFeedbackArr,
+        // text,
+        // setText,
+        // feedbackObj,
         setFeedbackObj,
         isAutoFocus,
         setAutoFocus,
         isSubmitted,
         setIsSubmitted,
+        updateFeedback,
+        removeFeedback,
       }}
     >
       {children}
