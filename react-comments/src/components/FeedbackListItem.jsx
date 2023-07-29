@@ -19,11 +19,11 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
     const target = event.target.closest("button");
     if (!target) return;
 
-    if (target.id === "btn--edit") {
-      const targetContainer = target.parentElement;
-      const formElement = targetContainer.previousElementSibling;
+    const targetContainer = target.parentElement;
+    const formElement = targetContainer.previousElementSibling;
+    const id = +formElement.id[formElement.id.length - 1];
 
-      const id = +formElement.id[formElement.id.length - 1];
+    if (target.id === "btn--edit") {
       const rating = +[
         ...formElement[`${ratingSubmittedContainer}-${id}`],
       ].find(({ checked }) => checked).value;
@@ -33,7 +33,7 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
       setIsDisabled(!isDisabled);
       !isDisabled && updateFeedback({ id, rating, feedback });
     } else if (target.id === "btn--remove") {
-      removeFeedback();
+      removeFeedback(id);
     }
   };
 

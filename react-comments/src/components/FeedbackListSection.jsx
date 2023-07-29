@@ -9,7 +9,8 @@ const FeedbackListSection = () => {
       <ul>
         {feedbackArr.map(({ id, rating, feedback }, index) => (
           <FeedbackListItem
-            key={index}
+            // key={index}
+            key={`${id}${index}`}
             idHandle={id}
             ratingHandle={rating}
             feedbackHandle={feedback}

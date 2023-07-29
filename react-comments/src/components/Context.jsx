@@ -42,8 +42,8 @@ const ContextProvider = ({ children }) => {
     );
   };
 
-  const removeFeedback = () => {
-    console.log("removed");
+  const removeFeedback = (id) => {
+    setFeedbackArr((prev) => prev.filter((item) => item.id !== id));
   };
 
   useEffect(() => {

@@ -5,7 +5,6 @@ import FeedbackListSection from "./components/FeedbackListSection";
 
 const App = () => {
   return (
-    // delete, edit, add instead of create?
     // btnDisabled
     // textarea doesn't change its size after submitting
     <>
