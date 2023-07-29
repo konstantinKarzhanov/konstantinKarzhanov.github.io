@@ -11,6 +11,7 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
     feedbackFormSubmitted,
     ratingSubmittedContainer,
     feedbackSubmittedArea,
+    getFeedbackData,
     validateFeedback,
     updateFeedback,
     removeFeedback,
@@ -18,15 +19,12 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
 
   const [isDisabled, setIsDisabled] = useState(() => true);
 
-  // here we can create one more function "takeFormData(form, ratingContainerName, feedbackContainerNAme)"
   const processClickBtnEditSave = (target, formElement, id) => {
-    const ratingContainerArr = [
-      ...formElement[`${ratingSubmittedContainer}-${id}`],
-    ];
-    const checkedObj = ratingContainerArr.find(({ checked }) => checked);
-    const textarea = formElement[`${feedbackSubmittedArea}-${id}`];
-    const rating = checkedObj ? +checkedObj.value : 0;
-    const feedback = textarea.value;
+    const { rating, feedback } = getFeedbackData(
+      formElement,
+      `${ratingSubmittedContainer}-${id}`,
+      `${feedbackSubmittedArea}-${id}`
+    );
 
     if (target.textContent === "Edit") {
       setIsDisabled(!isDisabled);
@@ -54,6 +52,7 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
     const formElement = targetContainer.previousElementSibling;
 
     // this will not work after ID becomes 10..
+    // btnDisabled
     const id = +formElement.id[formElement.id.length - 1];
 
     if (target.id === "btn--edit") {

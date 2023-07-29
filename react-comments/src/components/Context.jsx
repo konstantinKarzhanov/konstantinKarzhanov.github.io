@@ -34,6 +34,16 @@ const ContextProvider = ({ children }) => {
   const [isAutoFocus, setAutoFocus] = useState(() => true);
   const [isSubmitted, setIsSubmitted] = useState(() => false);
 
+  const getFeedbackData = (formObj, ratingContainer, feedbackContainer) => {
+    const ratingContainerArr = [...formObj[ratingContainer]];
+    const checkedObj = ratingContainerArr.find(({ checked }) => checked);
+    const textarea = formObj[feedbackContainer];
+
+    const rating = checkedObj ? +checkedObj.value : 0;
+    const feedback = textarea.value;
+    return { rating, feedback };
+  };
+
   const validateFeedback = (rating, feedback, minFeedbackLength) => {
     feedback = feedback.trim();
     // add editional messages for better UX
@@ -43,8 +53,17 @@ const ContextProvider = ({ children }) => {
   const createFeedback = (newFeedback) =>
     setFeedbackArr((prev) => [newFeedback, ...prev]);
 
-  const resetFeedbackSection = (ratingContainerArr, textarea) => {
-    ratingContainerArr.find(({ checked }) => checked).checked = false;
+  const resetFeedbackSection = (
+    formObj,
+    ratingContainer,
+    feedbackContainer
+  ) => {
+    const ratingContainerArr = [...formObj[ratingContainer]];
+    const checkedObj = ratingContainerArr.find(({ checked }) => checked);
+    const textarea = formObj[feedbackContainer];
+
+    if (checkedObj) checkedObj.checked = false;
+
     textarea.value = "";
     setIsSubmitted(true);
   };
@@ -81,6 +100,7 @@ const ContextProvider = ({ children }) => {
         setAutoFocus,
         isSubmitted,
         setIsSubmitted,
+        getFeedbackData,
         validateFeedback,
         createFeedback,
         resetFeedbackSection,

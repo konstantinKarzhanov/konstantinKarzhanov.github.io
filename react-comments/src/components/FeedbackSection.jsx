@@ -13,24 +13,25 @@ const FeedbackSection = () => {
     feedbackMainArea,
     feedbackArr,
     isAutoFocus,
+    getFeedbackData,
     validateFeedback,
     createFeedback,
     resetFeedbackSection,
   } = useContext(Context);
 
   const processSubmit = (target) => {
-    const ratingContainerArr = [...target[ratingMainContainer]];
-    const checkedObj = ratingContainerArr.find(({ checked }) => checked);
-    const textarea = target[feedbackMainArea];
+    const { rating, feedback } = getFeedbackData(
+      target,
+      ratingMainContainer,
+      feedbackMainArea
+    );
     const id = feedbackArr.length + 1;
-    const rating = checkedObj ? +checkedObj.value : 0;
-    const feedback = textarea.value;
 
     const flag = validateFeedback(rating, feedback, minFeedbackLength);
     if (flag) {
       console.log("passed validation, ready to submit");
       createFeedback({ id, rating, feedback });
-      resetFeedbackSection(ratingContainerArr, textarea);
+      resetFeedbackSection(target, ratingMainContainer, feedbackMainArea);
     } else {
       console.log("didn't pass validation");
     }
