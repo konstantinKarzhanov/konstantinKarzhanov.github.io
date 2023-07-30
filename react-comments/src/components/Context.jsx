@@ -34,6 +34,10 @@ const ContextProvider = ({ children }) => {
   const [isAutoFocus, setAutoFocus] = useState(() => true);
   const [isSubmitted, setIsSubmitted] = useState(() => false);
 
+  useEffect(() => {
+    isSubmitted && setIsSubmitted((prev) => !prev);
+  }, [isSubmitted]);
+
   const getFeedbackData = (formObj, ratingContainer, feedbackContainer) => {
     const ratingContainerArr = [...formObj[ratingContainer]];
     const checkedObj = ratingContainerArr.find(({ checked }) => checked);
@@ -63,9 +67,7 @@ const ContextProvider = ({ children }) => {
     const textarea = formObj[feedbackContainer];
 
     if (checkedObj) checkedObj.checked = false;
-
     textarea.value = "";
-    setIsSubmitted(true);
   };
 
   const updateFeedback = ({ id, rating, feedback }) =>

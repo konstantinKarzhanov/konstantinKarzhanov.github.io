@@ -13,6 +13,7 @@ const FeedbackSection = () => {
     feedbackMainArea,
     feedbackArr,
     isAutoFocus,
+    setIsSubmitted,
     getFeedbackData,
     validateFeedback,
     createFeedback,
@@ -44,6 +45,7 @@ const FeedbackSection = () => {
       console.log("passed validation, ready to submit");
       createFeedback({ id, rating, feedback });
       resetFeedbackSection(target, ratingMainContainer, feedbackMainArea);
+      setIsSubmitted((prev) => !prev);
     } else {
       console.log("didn't pass validation");
     }

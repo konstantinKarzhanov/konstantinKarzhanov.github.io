@@ -18,7 +18,6 @@ const RatingContainer = ({
   useEffect(() => {
     if (isSubmitted) {
       setRating(ratingHandle);
-      setIsSubmitted(!isSubmitted);
     }
   }, [isSubmitted]);
 
