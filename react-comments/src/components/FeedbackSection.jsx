@@ -13,6 +13,7 @@ const FeedbackSection = () => {
     feedbackMainArea,
     feedbackArr,
     isAutoFocus,
+    isSubmitted,
     setIsSubmitted,
     getFeedbackData,
     validateFeedback,
@@ -31,6 +32,11 @@ const FeedbackSection = () => {
       setIsBtnDisabled(true);
     }
   }, [ratingBool, feedbackBool]);
+
+  useEffect(() => {
+    setRatingBool(false);
+    setFeedbackBool(false);
+  }, [isSubmitted]);
 
   const processSubmit = (target) => {
     const { rating, feedback } = getFeedbackData(
