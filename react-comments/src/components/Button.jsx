@@ -1,8 +1,9 @@
 import React from "react";
 
-const Button = ({ idHandle, typeHandle, children }) => {
+const Button = ({ idHandle, typeHandle, disabledHandle, children }) => {
+  console.log(disabledHandle);
   return (
-    <button id={idHandle} type={typeHandle}>
+    <button id={idHandle} type={typeHandle} disabled={disabledHandle}>
       {children}
     </button>
   );
@@ -10,6 +11,7 @@ const Button = ({ idHandle, typeHandle, children }) => {
 
 Button.defaultProps = {
   typeHandle: "button",
+  disabledHandle: false,
 };
 
 export default Button;

@@ -7,6 +7,7 @@ const RatingContainer = ({
   classHandle,
   ratingHandle,
   maxRatingHandle,
+  setRatingBoolHandle,
   itemIDHandle,
   itemNameHandle,
   disabledHandle,
@@ -20,6 +21,10 @@ const RatingContainer = ({
       setIsSubmitted(!isSubmitted);
     }
   }, [isSubmitted]);
+
+  useEffect(() => {
+    setRatingBoolHandle(!!rating);
+  }, [rating]);
 
   // // first variant (checked)
   // const handleOnChange = (event) => {

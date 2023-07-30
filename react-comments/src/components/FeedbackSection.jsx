@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Context from "./Context";
 import RatingContainer from "./RatingContainer";
 import FeedbackContainer from "./FeedbackContainer";
@@ -18,6 +18,18 @@ const FeedbackSection = () => {
     createFeedback,
     resetFeedbackSection,
   } = useContext(Context);
+
+  const [isBtnDisabled, setIsBtnDisabled] = useState(() => true);
+  const [ratingBool, setRatingBool] = useState(() => false);
+  const [feedbackBool, setFeedbackBool] = useState(() => false);
+
+  useEffect(() => {
+    if (ratingBool && feedbackBool) {
+      setIsBtnDisabled(false);
+    } else {
+      setIsBtnDisabled(true);
+    }
+  }, [ratingBool, feedbackBool]);
 
   const processSubmit = (target) => {
     const { rating, feedback } = getFeedbackData(
@@ -48,10 +60,12 @@ const FeedbackSection = () => {
         <RatingContainer
           classHandle="rating-container"
           maxRatingHandle={maxRating}
+          setRatingBoolHandle={setRatingBool}
           itemIDHandle={`${ratingMainContainer}_`}
           itemNameHandle={ratingMainContainer}
         />
         <FeedbackContainer
+          setFeedbackBoolHandle={setFeedbackBool}
           itemIDHandle={feedbackMainArea}
           itemNameHandle={feedbackMainArea}
           autoFocusHandle={isAutoFocus}
@@ -59,6 +73,7 @@ const FeedbackSection = () => {
         <Button
           idHandle="btn--submit"
           typeHandle="submit"
+          disabledHandle={isBtnDisabled}
           children="Add Feedback"
         />
       </form>

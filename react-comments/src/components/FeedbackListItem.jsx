@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Context from "./Context";
 import RatingContainer from "./RatingContainer";
 import FeedbackContainer from "./FeedbackContainer";
@@ -18,6 +18,17 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
   } = useContext(Context);
 
   const [isDisabled, setIsDisabled] = useState(() => true);
+  const [isBtnDisabled, setIsBtnDisabled] = useState(() => false);
+  const [ratingBool, setRatingBool] = useState(() => true);
+  const [feedbackBool, setFeedbackBool] = useState(() => true);
+
+  useEffect(() => {
+    if (ratingBool && feedbackBool) {
+      setIsBtnDisabled(false);
+    } else {
+      setIsBtnDisabled(true);
+    }
+  }, [ratingBool, feedbackBool]);
 
   const processClickBtnEditSave = (target, formElement, id) => {
     const { rating, feedback } = getFeedbackData(
@@ -66,19 +77,25 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
           classHandle="rating-container size--xs"
           ratingHandle={ratingHandle}
           maxRatingHandle={maxRating}
+          setRatingBoolHandle={setRatingBool}
           itemIDHandle={`${ratingSubmittedContainer}-${idHandle}_`}
           itemNameHandle={`${ratingSubmittedContainer}-${idHandle}`}
           disabledHandle={isDisabled}
         />
         <FeedbackContainer
-          feedbackHandle={feedbackHandle}
+          setFeedbackBoolHandle={setFeedbackBool}
           itemIDHandle={`${feedbackSubmittedArea}-${idHandle}`}
           itemNameHandle={`${feedbackSubmittedArea}-${idHandle}`}
+          feedbackHandle={feedbackHandle}
           disabledHandle={isDisabled}
         />
       </form>
       <div onClick={(event) => handleClick(event)}>
-        <Button idHandle="btn--edit" children="Edit" />
+        <Button
+          idHandle="btn--edit"
+          disabledHandle={isBtnDisabled}
+          children="Edit"
+        />
         <Button idHandle="btn--remove" children="Remove" />
       </div>
     </li>

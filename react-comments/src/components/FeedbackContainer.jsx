@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-// import Context from "./Context";
+import Context from "./Context";
 import FeedbackItem from "./FeedbackItem";
 
 // const debounceDecorator = (func, ms) => {
@@ -15,12 +15,14 @@ import FeedbackItem from "./FeedbackItem";
 // };
 
 const FeedbackContainer = ({
-  feedbackHandle,
+  setFeedbackBoolHandle,
   itemIDHandle,
   itemNameHandle,
+  feedbackHandle,
   autoFocusHandle,
   disabledHandle,
 }) => {
+  const { minFeedbackLength } = useContext(Context);
   // const { text, setText } = useContext(Context);
 
   // let saveText = (text) => setText(text);
@@ -41,6 +43,7 @@ const FeedbackContainer = ({
   const handleOnChange = (event) => {
     const target = event.currentTarget;
 
+    setFeedbackBoolHandle(target.value.length > minFeedbackLength);
     // saveText(target.value);
     resizeArea(target);
   };
