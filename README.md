@@ -2,7 +2,7 @@
 <p>This repository contains several projects that I have worked on. You can find direct links to each project's webpage listed below.</p>
 <h2>Websites</h2>
 <ul>
-  <li>Architecture Bureau: https://konstantinkarzhanov.github.io/architecture-bureau/</li>
+  <li>Architecture Bureau: <a href="https://konstantinkarzhanov.github.io/architecture-bureau/">https://konstantinkarzhanov.github.io/architecture-bureau/</li>
   <li>Easy Bank: https://konstantinkarzhanov.github.io/easybank/</li>
   <li>Room: https://konstantinkarzhanov.github.io/room/</li>
   <li>Run Smart: https://konstantinkarzhanov.github.io/runsmart/</li>
