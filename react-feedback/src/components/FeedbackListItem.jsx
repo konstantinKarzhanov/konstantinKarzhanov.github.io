@@ -14,7 +14,7 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
     getFeedbackData,
     validateFeedback,
     updateFeedback,
-    removeFeedback,
+    deleteFeedback,
   } = useContext(Context);
 
   const [isDisabled, setIsDisabled] = useState(() => true);
@@ -52,7 +52,7 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
   };
 
   const processClickBtnRemove = (id) => {
-    removeFeedback(id);
+    deleteFeedback(id);
   };
 
   const handleClick = (event) => {

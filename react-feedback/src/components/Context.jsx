@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const Context = React.createContext();
 
 const ContextProvider = ({ children }) => {
+  const API_URL = "http://localhost:5000/feedbacks";
   const maxRating = 10;
   const minFeedbackLength = 10;
   const feedbackFormMain = "feedback-form--main";
@@ -11,25 +12,26 @@ const ContextProvider = ({ children }) => {
   const feedbackFormSubmitted = "feedback-form";
   const ratingSubmittedContainer = "feedback-rating";
   const feedbackSubmittedArea = "feedback-text";
-  const [feedbackArr, setFeedbackArr] = useState(() => {
-    return [
-      {
-        id: 1,
-        rating: 8,
-        feedback: "first feedback",
-      },
-      {
-        id: 2,
-        rating: 4,
-        feedback: "second feedback",
-      },
-      {
-        id: 3,
-        rating: 5,
-        feedback: "third feedback",
-      },
-    ];
-  });
+  // const [feedbackArr, setFeedbackArr] = useState(() => {
+  //   return [
+  //     {
+  //       id: 1,
+  //       rating: 8,
+  //       feedback: "first feedback",
+  //     },
+  //     {
+  //       id: 2,
+  //       rating: 4,
+  //       feedback: "second feedback",
+  //     },
+  //     {
+  //       id: 3,
+  //       rating: 5,
+  //       feedback: "third feedback",
+  //     },
+  //   ];
+  // });
+  const [feedbackArr, setFeedbackArr] = useState(() => []);
   // const [text, setText] = useState(() => "");
   const [isAutoFocus, setAutoFocus] = useState(() => true);
   const [isSubmitted, setIsSubmitted] = useState(() => false);
@@ -38,6 +40,47 @@ const ContextProvider = ({ children }) => {
     isSubmitted && setIsSubmitted((prev) => !prev);
   }, [isSubmitted]);
 
+  // -----------
+  useEffect(() => {
+    getRequest(API_URL);
+  }, []);
+
+  const fetchData = async (url, options) => {
+    try {
+      const request = await fetch(url, options);
+      const response = await request.json();
+      return await response;
+    } catch ({ name, message }) {
+      console.log(`${name}: ${message}`);
+    }
+  };
+
+  const getRequest = async (url) => {
+    const data = await fetchData(url);
+    setFeedbackArr(data.reverse());
+  };
+
+  const postRequest = async (url, body) => {
+    fetchData(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+  };
+
+  const putRequest = async (url, id, body) => {
+    fetchData(`${url}/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+  };
+
+  const deleteRequest = async (url, id) => {
+    fetchData(`${url}/${id}`, { method: "DELETE" });
+  };
+
+  // -----------
   const getFeedbackData = (formObj, ratingContainer, feedbackContainer) => {
     const ratingContainerArr = [...formObj[ratingContainer]];
     const checkedObj = ratingContainerArr.find(({ checked }) => checked);
@@ -54,8 +97,12 @@ const ContextProvider = ({ children }) => {
     if (rating && feedback.length > minFeedbackLength) return true;
   };
 
-  const createFeedback = (newFeedback) =>
+  // const createFeedback = (newFeedback) =>
+  //   setFeedbackArr((prev) => [newFeedback, ...prev]);
+  const createFeedback = (newFeedback) => {
     setFeedbackArr((prev) => [newFeedback, ...prev]);
+    postRequest(API_URL, newFeedback);
+  };
 
   const resetFeedbackSection = (
     formObj,
@@ -70,19 +117,29 @@ const ContextProvider = ({ children }) => {
     textarea.value = "";
   };
 
-  const updateFeedback = ({ id, rating, feedback }) =>
+  // const updateFeedback = ({ id, rating, feedback }) =>
+  //   setFeedbackArr((prev) =>
+  //     prev.map((item) =>
+  //       item.id === id ? { ...item, rating, feedback } : item
+  //     )
+  //   );
+  const updateFeedback = ({ id, rating, feedback }) => {
     setFeedbackArr((prev) =>
       prev.map((item) =>
         item.id === id ? { ...item, rating, feedback } : item
       )
     );
+    putRequest(API_URL, id, { id, rating, feedback });
+  };
 
-  const removeFeedback = (id) =>
+  const deleteFeedback = (id) => {
     setFeedbackArr((prev) => prev.filter((item) => item.id !== id));
+    deleteRequest(API_URL, id);
+  };
 
-  useEffect(() => {
-    feedbackArr.length && console.log(feedbackArr);
-  }, [feedbackArr]);
+  // useEffect(() => {
+  //   feedbackArr.length && console.log(feedbackArr);
+  // }, [feedbackArr]);
 
   return (
     <Context.Provider
@@ -107,7 +164,7 @@ const ContextProvider = ({ children }) => {
         createFeedback,
         resetFeedbackSection,
         updateFeedback,
-        removeFeedback,
+        deleteFeedback,
       }}
     >
       {children}
