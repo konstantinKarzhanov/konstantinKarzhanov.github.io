@@ -23,7 +23,7 @@ const FeedbackContainer = ({
   const handleOnChange = (event) => {
     const target = event.currentTarget;
 
-    setFeedbackBoolHandle(target.value.length > minFeedbackLength);
+    setFeedbackBoolHandle(target.value.trim().length > minFeedbackLength);
     resizeArea(target);
   };
 

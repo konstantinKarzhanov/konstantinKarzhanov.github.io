@@ -16,7 +16,7 @@ const RatingItem = ({
     >
       <input
         id={itemIDHandle}
-        className="sr-only"
+        // className="sr-only"
         name={itemNameHandle}
         value={valueHandle}
         type="radio"
