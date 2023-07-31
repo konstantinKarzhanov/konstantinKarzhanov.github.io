@@ -60,6 +60,10 @@
   display: flex;
 }
 
+.flex--jc-sb {
+  justify-content: space-between;
+}
+
 .flex--gap {
   gap: var(--gap);
 }

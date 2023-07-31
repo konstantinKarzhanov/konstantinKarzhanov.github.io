@@ -2,6 +2,9 @@
 import React, { useContext } from "react";
 import Context from "./Context";
 
+// Import CSS file for styling component
+import "./css/statistic.css";
+
 // Define the functional component "FeedbackStatisticSection" that displays feedback statistics
 const FeedbackStatisticSection = () => {
   // Extract the "feedbackArr" from the Context using useContext
@@ -19,7 +22,7 @@ const FeedbackStatisticSection = () => {
   // Render the "FeedbackStatisticSection" component with the feedback statistics
   return (
     <section>
-      <div className="flex flex--jc-sb">
+      <div className="statistic container--py flex flex--jc-sb">
         <p>
           Feedbacks: <span>{feedbackArr.length}</span>
         </p>
