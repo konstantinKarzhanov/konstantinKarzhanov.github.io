@@ -1,6 +1,8 @@
+// Import React library and the CSS styles for the component
 import React from "react";
 import "./css/feedback.css";
 
+// Define the functional component "FeedbackItem" that renders the feedback textarea
 const FeedbackItem = ({
   handleOnChange,
   itemIDHandle,
@@ -9,6 +11,7 @@ const FeedbackItem = ({
   autoFocusHandle,
   disabledHandle,
 }) => {
+  // Render a textarea element to capture user feedback
   return (
     <textarea
       onChange={handleOnChange}
@@ -23,4 +26,5 @@ const FeedbackItem = ({
   );
 };
 
+// Export the FeedbackItem component
 export default FeedbackItem;

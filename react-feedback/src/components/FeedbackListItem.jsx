@@ -1,3 +1,4 @@
+// Import React and necessary components and CSS styles
 import React, { useState, useEffect, useContext } from "react";
 import Context from "./Context";
 import RatingContainer from "./RatingContainer";
@@ -5,7 +6,9 @@ import FeedbackContainer from "./FeedbackContainer";
 import Button from "./Button";
 import "./css/button.css";
 
+// Define the functional component "FeedbackListItem" that represents a single feedback item
 const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
+  // Extract necessary data and functions from the Context using useContext
   const {
     maxRating,
     minFeedbackLength,
@@ -18,12 +21,14 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
     deleteFeedback,
   } = useContext(Context);
 
+  // State variables to manage the component behavior
   const [isDisabled, setIsDisabled] = useState(() => true);
   const [isBtnDisabled, setIsBtnDisabled] = useState(() => false);
   const [ratingBool, setRatingBool] = useState(() => true);
   const [feedbackBool, setFeedbackBool] = useState(() => true);
   const [btnChildren, setBtnChildren] = useState(() => "Edit");
 
+  // useEffect to update the button's disabled state based on ratingBool and feedbackBool
   useEffect(() => {
     if (ratingBool && feedbackBool) {
       setIsBtnDisabled(false);
@@ -32,6 +37,7 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
     }
   }, [ratingBool, feedbackBool]);
 
+  // Function to process clicks on the "Edit" and "Save" buttons
   const processClickBtnEditSave = (target, formElement, id) => {
     const { rating, feedback } = getFeedbackData(
       formElement,
@@ -55,10 +61,12 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
     }
   };
 
+  // Function to process clicks on the "Delete" button
   const processClickBtnDelete = (id) => {
     deleteFeedback(id);
   };
 
+  // Function to handle button clicks (Edit, Save, Delete)
   const handleClick = (event) => {
     const target = event.target.closest("button");
     if (!target) return;
@@ -74,6 +82,7 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
     }
   };
 
+  // Render the FeedbackListItem component with RatingContainer, FeedbackContainer, and Buttons
   return (
     <li className="p--rel" {...(isDisabled && { "data-disabled": "" })}>
       <form
@@ -113,4 +122,5 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
   );
 };
 
+// Export the FeedbackListItem component
 export default FeedbackListItem;

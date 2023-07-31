@@ -1,10 +1,13 @@
+// Import React and necessary components and Context
 import React, { useState, useEffect, useContext } from "react";
 import Context from "./Context";
 import RatingContainer from "./RatingContainer";
 import FeedbackContainer from "./FeedbackContainer";
 import Button from "./Button";
 
+// Define the functional component "FeedbackSection" that represents the feedback section with a form to add new feedback
 const FeedbackSection = () => {
+  // Extract necessary data and functions from the Context using useContext
   const {
     maxRating,
     minFeedbackLength,
@@ -21,10 +24,12 @@ const FeedbackSection = () => {
     resetFeedbackSection,
   } = useContext(Context);
 
+  // Initialize state variables
   const [isBtnDisabled, setIsBtnDisabled] = useState(() => true);
   const [ratingBool, setRatingBool] = useState(() => false);
   const [feedbackBool, setFeedbackBool] = useState(() => false);
 
+  // useEffect to enable or disable the "Add Feedback" button based on ratingBool and feedbackBool
   useEffect(() => {
     if (ratingBool && feedbackBool) {
       setIsBtnDisabled(false);
@@ -33,11 +38,13 @@ const FeedbackSection = () => {
     }
   }, [ratingBool, feedbackBool]);
 
+  // useEffect to reset ratingBool and feedbackBool when isSubmitted changes
   useEffect(() => {
     setRatingBool(false);
     setFeedbackBool(false);
   }, [isSubmitted]);
 
+  // Function to process the form submission and add new feedback
   const processSubmit = (target) => {
     const { rating, feedback } = getFeedbackData(
       target,
@@ -57,11 +64,13 @@ const FeedbackSection = () => {
     }
   };
 
+  // Function to handle the form submission event
   const handleOnSubmit = (event) => {
     event.preventDefault();
     processSubmit(event.target);
   };
 
+  // Render the "FeedbackSection" component with the feedback form
   return (
     <section>
       <form
@@ -93,4 +102,5 @@ const FeedbackSection = () => {
   );
 };
 
+// Export the FeedbackSection component
 export default FeedbackSection;

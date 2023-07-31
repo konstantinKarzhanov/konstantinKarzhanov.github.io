@@ -1,6 +1,8 @@
+// Import React and FaStar icon from React-Icons library
 import React from "react";
 import { FaStar } from "react-icons/fa";
 
+// Define the functional component "RatingItem" for displaying a single rating item
 const RatingItem = ({
   dataAttrHandle,
   itemIDHandle,
@@ -9,6 +11,7 @@ const RatingItem = ({
   checkedHandle,
   disabledHandle,
 }) => {
+  // Render the rating item as a label element containing an input (radio button) and the FaStar icon
   return (
     <label
       className="p--rel"
@@ -29,4 +32,5 @@ const RatingItem = ({
   );
 };
 
+// Export the RatingItem component
 export default RatingItem;

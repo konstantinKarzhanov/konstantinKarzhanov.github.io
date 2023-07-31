@@ -1,5 +1,7 @@
+// Import React library
 import React from "react";
 
+// Define the functional component "FooterContainer" that displays footer
 const FooterContainer = () => {
   return (
     <footer>
@@ -8,4 +10,5 @@ const FooterContainer = () => {
   );
 };
 
+// Export the FooterContainer component
 export default FooterContainer;
