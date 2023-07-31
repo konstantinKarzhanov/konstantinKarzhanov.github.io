@@ -6,9 +6,6 @@ import FeedbackListSection from "./components/FeedbackListSection";
 
 const App = () => {
   return (
-    // btnDisabled --> how to do validation before Submit and not inside it?
-    // need to check the length statically for submitted elements
-    // textarea doesn't change its size after submitting
     <>
       <header></header>
       <main>

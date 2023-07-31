@@ -12,27 +12,7 @@ const ContextProvider = ({ children }) => {
   const feedbackFormSubmitted = "feedback-form";
   const ratingSubmittedContainer = "feedback-rating";
   const feedbackSubmittedArea = "feedback-text";
-  // const [feedbackArr, setFeedbackArr] = useState(() => {
-  //   return [
-  //     {
-  //       id: 1,
-  //       rating: 8,
-  //       feedback: "first feedback",
-  //     },
-  //     {
-  //       id: 2,
-  //       rating: 4,
-  //       feedback: "second feedback",
-  //     },
-  //     {
-  //       id: 3,
-  //       rating: 5,
-  //       feedback: "third feedback",
-  //     },
-  //   ];
-  // });
   const [feedbackArr, setFeedbackArr] = useState(() => []);
-  // const [text, setText] = useState(() => "");
   const [isAutoFocus, setAutoFocus] = useState(() => true);
   const [isSubmitted, setIsSubmitted] = useState(() => false);
 
@@ -40,7 +20,6 @@ const ContextProvider = ({ children }) => {
     isSubmitted && setIsSubmitted((prev) => !prev);
   }, [isSubmitted]);
 
-  // -----------
   useEffect(() => {
     getRequest(API_URL);
   }, []);
@@ -80,7 +59,6 @@ const ContextProvider = ({ children }) => {
     fetchData(`${url}/${id}`, { method: "DELETE" });
   };
 
-  // -----------
   const getFeedbackData = (formObj, ratingContainer, feedbackContainer) => {
     const ratingContainerArr = [...formObj[ratingContainer]];
     const checkedObj = ratingContainerArr.find(({ checked }) => checked);
@@ -93,12 +71,9 @@ const ContextProvider = ({ children }) => {
 
   const validateFeedback = (rating, feedback, minFeedbackLength) => {
     feedback = feedback.trim();
-    // add editional messages for better UX
     if (rating && feedback.length > minFeedbackLength) return true;
   };
 
-  // const createFeedback = (newFeedback) =>
-  //   setFeedbackArr((prev) => [newFeedback, ...prev]);
   const createFeedback = (newFeedback) => {
     setFeedbackArr((prev) => [newFeedback, ...prev]);
     postRequest(API_URL, newFeedback);
@@ -117,12 +92,6 @@ const ContextProvider = ({ children }) => {
     textarea.value = "";
   };
 
-  // const updateFeedback = ({ id, rating, feedback }) =>
-  //   setFeedbackArr((prev) =>
-  //     prev.map((item) =>
-  //       item.id === id ? { ...item, rating, feedback } : item
-  //     )
-  //   );
   const updateFeedback = ({ id, rating, feedback }) => {
     setFeedbackArr((prev) =>
       prev.map((item) =>
@@ -137,10 +106,6 @@ const ContextProvider = ({ children }) => {
     deleteRequest(API_URL, id);
   };
 
-  // useEffect(() => {
-  //   feedbackArr.length && console.log(feedbackArr);
-  // }, [feedbackArr]);
-
   return (
     <Context.Provider
       value={{
@@ -153,10 +118,7 @@ const ContextProvider = ({ children }) => {
         ratingSubmittedContainer,
         feedbackSubmittedArea,
         feedbackArr,
-        // text,
-        // setText,
         isAutoFocus,
-        setAutoFocus,
         isSubmitted,
         setIsSubmitted,
         getFeedbackData,

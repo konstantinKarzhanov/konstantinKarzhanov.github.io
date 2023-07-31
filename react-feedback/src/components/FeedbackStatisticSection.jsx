@@ -15,7 +15,7 @@ const FeedbackStatisticSection = () => {
     <section>
       <div>
         <p>
-          Feedbacks #: <span>{feedbackArr.length}</span>
+          Feedbacks: <span>{feedbackArr.length}</span>
         </p>
         <p>
           Average Rating: <span>{averageRating}</span>

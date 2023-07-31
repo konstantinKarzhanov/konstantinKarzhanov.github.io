@@ -2,7 +2,6 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 
 const RatingItem = ({
-  handleOnChange,
   dataAttrHandle,
   itemIDHandle,
   itemNameHandle,
@@ -16,13 +15,11 @@ const RatingItem = ({
       {...(dataAttrHandle && { "data-selected": "" })}
     >
       <input
-        // onChange={handleOnChange}
         id={itemIDHandle}
-        // className="sr-only"
+        className="sr-only"
         name={itemNameHandle}
         value={valueHandle}
         type="radio"
-        // checked={checkedHandle}
         defaultChecked={checkedHandle}
         disabled={disabledHandle}
       />
