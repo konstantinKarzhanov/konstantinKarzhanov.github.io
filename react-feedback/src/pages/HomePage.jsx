@@ -3,7 +3,7 @@ import React from "react";
 const HomePage = () => {
   return (
     <>
-      <h1>Home page</h1>
+      <h1 className="fw--600">Home page</h1>
       <p>
         Welcome to our Feedback App! We believe that feedback is a powerful tool
         for growth and improvement. Our platform is designed to make feedback

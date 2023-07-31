@@ -3,7 +3,7 @@ import React from "react";
 const FooterContainer = () => {
   return (
     <footer>
-      <p>This is a footer container</p>
+      <p>{"<This is a footer container>"}</p>
     </footer>
   );
 };

@@ -6,7 +6,7 @@ const FeedbackListSection = () => {
   const { feedbackArr } = useContext(Context);
   return (
     <section>
-      <ul>
+      <ul className="flow-spacing--m">
         {feedbackArr.map(({ id, rating, feedback }, index) => (
           <FeedbackListItem
             key={`${id}${index}`}

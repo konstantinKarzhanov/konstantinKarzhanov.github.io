@@ -1,3 +1,7 @@
+header {
+  --pad-y: 1rem;
+}
+
 .active {
   color: magenta;
 }

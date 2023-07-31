@@ -13,7 +13,7 @@ const FeedbackItem = ({
     <textarea
       onChange={handleOnChange}
       id={itemIDHandle}
-      className="feedback"
+      className="feedback b-radius"
       name={itemNameHandle}
       defaultValue={feedbackHandle}
       placeholder="Add your feedback here"

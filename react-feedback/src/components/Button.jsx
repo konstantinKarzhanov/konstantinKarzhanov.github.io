@@ -1,8 +1,20 @@
 import React from "react";
+import "./css/button.css";
 
-const Button = ({ idHandle, typeHandle, disabledHandle, children }) => {
+const Button = ({
+  idHandle,
+  classHandle,
+  typeHandle,
+  disabledHandle,
+  children,
+}) => {
   return (
-    <button id={idHandle} type={typeHandle} disabled={disabledHandle}>
+    <button
+      id={idHandle}
+      className={"d-block b-radius" + (classHandle ? ` ${classHandle}` : "")}
+      type={typeHandle}
+      disabled={disabledHandle}
+    >
       {children}
     </button>
   );

@@ -3,7 +3,7 @@ import React from "react";
 const AboutPage = () => {
   return (
     <>
-      <h1>About page</h1>
+      <h1 className="fw--600">About page</h1>
       <p>
         Welcome to the About page of our Feedback App! We are passionate about
         revolutionizing feedback collection, analysis, and action. Our app

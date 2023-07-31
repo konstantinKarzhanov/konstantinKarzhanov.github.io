@@ -8,12 +8,14 @@ const FeedbackPage = () => {
   return (
     <>
       <main>
-        <ContextProvider>
-          <h1>Rate us</h1>
-          <FeedbackSection />
-          <FeedbackStatisticSection />
-          <FeedbackListSection />
-        </ContextProvider>
+        <div className="flow-spacing--s">
+          <ContextProvider>
+            <h1 className="fw--600">Rate us</h1>
+            <FeedbackSection />
+            <FeedbackStatisticSection />
+            <FeedbackListSection />
+          </ContextProvider>
+        </div>
       </main>
     </>
   );

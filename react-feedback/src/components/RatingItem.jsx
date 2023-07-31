@@ -11,12 +11,13 @@ const RatingItem = ({
 }) => {
   return (
     <label
+      className="p--rel"
       htmlFor={itemIDHandle}
       {...(dataAttrHandle && { "data-selected": "" })}
     >
       <input
         id={itemIDHandle}
-        // className="sr-only"
+        className="sr-only"
         name={itemNameHandle}
         value={valueHandle}
         type="radio"

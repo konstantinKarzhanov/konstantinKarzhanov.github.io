@@ -3,6 +3,7 @@ import Context from "./Context";
 import RatingContainer from "./RatingContainer";
 import FeedbackContainer from "./FeedbackContainer";
 import Button from "./Button";
+import "./css/button.css";
 
 const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
   const {
@@ -21,6 +22,7 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
   const [isBtnDisabled, setIsBtnDisabled] = useState(() => false);
   const [ratingBool, setRatingBool] = useState(() => true);
   const [feedbackBool, setFeedbackBool] = useState(() => true);
+  const [btnChildren, setBtnChildren] = useState(() => "Edit");
 
   useEffect(() => {
     if (ratingBool && feedbackBool) {
@@ -39,19 +41,21 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
 
     if (target.textContent === "Edit") {
       setIsDisabled(!isDisabled);
-      target.textContent = "Save";
+
+      setBtnChildren("Save");
     } else if (target.textContent === "Save") {
       const flag = validateFeedback(rating, feedback, minFeedbackLength);
 
       if (flag) {
         updateFeedback({ id, rating, feedback });
         setIsDisabled(!isDisabled);
-        target.textContent = "Edit";
+
+        setBtnChildren("Edit");
       }
     }
   };
 
-  const processClickBtnRemove = (id) => {
+  const processClickBtnDelete = (id) => {
     deleteFeedback(id);
   };
 
@@ -65,14 +69,17 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
 
     if (target.id === "btn--edit") {
       processClickBtnEditSave(target, formElement, id);
-    } else if (target.id === "btn--remove") {
-      processClickBtnRemove(id);
+    } else if (target.id === "btn--delete") {
+      processClickBtnDelete(id);
     }
   };
 
   return (
-    <li {...(isDisabled && { "data-disabled": "" })}>
-      <form id={`${feedbackFormSubmitted}-${idHandle}`}>
+    <li className="p--rel" {...(isDisabled && { "data-disabled": "" })}>
+      <form
+        id={`${feedbackFormSubmitted}-${idHandle}`}
+        className="flow-spacing--xs"
+      >
         <RatingContainer
           classHandle="rating-container size--xs"
           ratingHandle={ratingHandle}
@@ -90,13 +97,17 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
           disabledHandle={isDisabled}
         />
       </form>
-      <div onClick={(event) => handleClick(event)}>
+      <div
+        onClick={(event) => handleClick(event)}
+        className="btn-container grid grid-container grid--all-gap p--abs"
+      >
         <Button
           idHandle="btn--edit"
+          classHandle={btnChildren === "Save" && "btn--active"}
           disabledHandle={isBtnDisabled}
-          children="Edit"
+          children={btnChildren}
         />
-        <Button idHandle="btn--remove" children="Remove" />
+        <Button idHandle="btn--delete" children="Delete" />
       </div>
     </li>
   );

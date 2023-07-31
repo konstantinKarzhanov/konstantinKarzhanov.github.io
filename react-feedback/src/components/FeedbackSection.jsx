@@ -64,7 +64,11 @@ const FeedbackSection = () => {
 
   return (
     <section>
-      <form id={feedbackFormMain} onSubmit={(event) => handleOnSubmit(event)}>
+      <form
+        id={feedbackFormMain}
+        onSubmit={(event) => handleOnSubmit(event)}
+        className="flow-spacing--xs"
+      >
         <RatingContainer
           classHandle="rating-container"
           maxRatingHandle={maxRating}

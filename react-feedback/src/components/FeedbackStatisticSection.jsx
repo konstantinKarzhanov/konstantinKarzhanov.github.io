@@ -13,7 +13,7 @@ const FeedbackStatisticSection = () => {
 
   return (
     <section>
-      <div>
+      <div className="flex flex--jc-sb">
         <p>
           Feedbacks: <span>{feedbackArr.length}</span>
         </p>
