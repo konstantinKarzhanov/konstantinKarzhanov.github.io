@@ -1,4 +1,4 @@
-// Import React and necessary components and CSS styles
+// Import React and necessary components
 import React, { useState, useEffect, useContext } from "react";
 import Context from "./Context";
 import RatingContainer from "./RatingContainer";
@@ -46,16 +46,14 @@ const FeedbackListItem = ({ idHandle, ratingHandle, feedbackHandle }) => {
     );
 
     if (target.textContent === "Edit") {
-      setIsDisabled(!isDisabled);
-
+      setIsDisabled(false);
       setBtnChildren("Save");
     } else if (target.textContent === "Save") {
       const flag = validateFeedback(rating, feedback, minFeedbackLength);
 
       if (flag) {
         updateFeedback({ id, rating, feedback });
-        setIsDisabled(!isDisabled);
-
+        setIsDisabled(true);
         setBtnChildren("Edit");
       }
     }

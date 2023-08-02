@@ -22,9 +22,7 @@ const RatingContainer = ({
 
   // Update the rating state when the "isSubmitted" state changes
   useEffect(() => {
-    if (isSubmitted) {
-      setRating(ratingHandle);
-    }
+    isSubmitted && setRating(ratingHandle);
   }, [isSubmitted]);
 
   // Update the "ratingBool" state in the parent component based on the current rating
@@ -71,7 +69,7 @@ const RatingContainer = ({
         // // first variant (checked)
         // onDoubleClick={handleDoubleClick}
 
-        // second variant (checked)
+        // second variant (defaultChecked)
         onClick={(event) => handleClick(event)}
         onDoubleClick={(event) => !disabledHandle && handleDoubleClick(event)}
         className={classHandle}

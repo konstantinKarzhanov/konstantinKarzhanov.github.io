@@ -1,4 +1,4 @@
-// Import React and necessary components and Context
+// Import React and necessary components
 import React, { useState, useEffect, useContext } from "react";
 import Context from "./Context";
 import RatingContainer from "./RatingContainer";
@@ -58,7 +58,7 @@ const FeedbackSection = () => {
       console.log("passed validation, ready to submit");
       createFeedback({ id, rating, feedback });
       resetFeedbackSection(target, ratingMainContainer, feedbackMainArea);
-      setIsSubmitted((prev) => !prev);
+      setIsSubmitted(true);
     } else {
       console.log("didn't pass validation");
     }

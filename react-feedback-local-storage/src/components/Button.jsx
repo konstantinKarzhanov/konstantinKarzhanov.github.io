@@ -1,7 +1,5 @@
 // Import React library to use React components and hooks
 import React from "react";
-// Import CSS file for styling the button component
-import "./css/button.css";
 
 // Define the functional component "Button" which takes props as input
 const Button = ({

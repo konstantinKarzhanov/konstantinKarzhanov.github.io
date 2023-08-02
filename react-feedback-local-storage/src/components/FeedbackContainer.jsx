@@ -7,18 +7,6 @@ import Context from "./Context";
 // Import the FeedbackItem component to render the feedback input item
 import FeedbackItem from "./FeedbackItem";
 
-// const debounceDecorator = (func, ms) => {
-//   let id;
-
-//   return function (...args) {
-//     if (id) {
-//       clearTimeout(id);
-//     }
-
-//     id = setTimeout(func.bind(this, ...args), ms);
-//   };
-// };
-
 // Define the functional component "FeedbackContainer" that displays the feedback input container
 const FeedbackContainer = ({
   setFeedbackBoolHandle,
@@ -30,15 +18,6 @@ const FeedbackContainer = ({
 }) => {
   // Use the "useContext" hook to access the shared context data
   const { minFeedbackLength } = useContext(Context);
-
-  // const { text, setText } = useContext(Context);
-
-  // let saveText = (text) => setText(text);
-  // saveText = debounceDecorator(saveText, 1000);
-
-  // useEffect(() => {
-  //   console.log(text);
-  // }, [text]);
 
   // Define a function "resizeArea" to resize the text area based on its content
   const resizeArea = (target) => {
@@ -57,8 +36,6 @@ const FeedbackContainer = ({
 
     // Set "feedbackBoolHandle" based on whether the trimmed feedback length is greater than the minimum length
     setFeedbackBoolHandle(target.value.trim().length > minFeedbackLength);
-
-    // saveText(target.value);
 
     // Resize the text area to fit its content
     resizeArea(target);
