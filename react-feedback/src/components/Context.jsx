@@ -49,7 +49,7 @@ const ContextProvider = ({ children }) => {
   const getRequest = async (url) => {
     // Function to fetch data using GET request from the API and update "feedbackArr" state
     const data = await fetchData(url);
-    setFeedbackArr(data.reverse());
+    data && setFeedbackArr(data.reverse());
   };
 
   const postRequest = async (url, body) => {
